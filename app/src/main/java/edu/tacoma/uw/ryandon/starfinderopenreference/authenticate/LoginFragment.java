@@ -65,6 +65,13 @@ public class LoginFragment extends Fragment {
                 mLoginFragmentListener.login(emailText.getText().toString(), pwdText.getText().toString());
             }
         });
+        Button registerButton = view.findViewById(R.id.btn_register);
+        registerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                mLoginFragmentListener.register();
+            }
+        });
 
         return  view;
     }
@@ -73,6 +80,7 @@ public class LoginFragment extends Fragment {
     public static interface LoginFragmentListener {
 
         public void login(String email, String pwd);
+        public void register();
     }
 
 }

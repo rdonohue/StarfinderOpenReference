@@ -9,6 +9,7 @@ import android.os.Bundle;
 
 import edu.tacoma.uw.ryandon.starfinderopenreference.MainActivity;
 import edu.tacoma.uw.ryandon.starfinderopenreference.R;
+import edu.tacoma.uw.ryandon.starfinderopenreference.model.Members;
 
 public class SignInActivity extends AppCompatActivity implements LoginFragment.LoginFragmentListener {
 
@@ -40,11 +41,22 @@ public class SignInActivity extends AppCompatActivity implements LoginFragment.L
         // in here we want to check if the email and pwd match a member in our members database
         //we should look courses to see how the sql values were analyzed in android studio.
 
+        //how do i access the members table from heroku
         mSharedPreferences
                 .edit()
                 .putBoolean(getString(R.string.LOGGEDIN), true)
                 .commit();
+
+
+        //we go to main activity if we are signing in , well need another method called register where login was instantiated?
+
         Intent i = new Intent(this, MainActivity.class);
+        startActivity(i);
+        finish();
+    }
+    @Override
+    public void register(){
+        Intent i = new Intent(this, RegisterActivity.class);
         startActivity(i);
         finish();
     }

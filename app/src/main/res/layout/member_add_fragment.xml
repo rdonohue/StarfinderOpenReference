@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="model.MemberAddFragment">
+    <EditText
+        android:id="@+id/add_member_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_member_id_hint" />
+    <EditText
+        android:id="@+id/add_member_first_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_member_first_name_hint" />
+    <EditText
+        android:id="@+id/add_member_last_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_member_last_name_hint" />
+    <EditText
+        android:id="@+id/add_member_username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_member_username_hint" />
+
+    <EditText
+        android:id="@+id/add_member_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_member_email_hint" />
+    <EditText
+        android:id="@+id/add_member_pwd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_member_pwd_hint" />
+    <Button
+        android:id="@+id/btn_add_member"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:text="@string/member_add__btn" />
+</LinearLayout>

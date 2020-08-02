@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".OGLPage" />
+        <activity android:name=".authenticate.RegisterActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
