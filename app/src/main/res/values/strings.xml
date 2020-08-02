@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Starfinder Open Reference</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="sign_in">Sign In</string>
+    <string name="LOGIN_PREFS">com.example.datalab.PREFS</string>
+    <string name="LOGGEDIN">loggedin</string>
+    <string name="action_logout">Sign Out</string>
 </resources>
