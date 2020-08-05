@@ -6,4 +6,17 @@
     <string name="LOGIN_PREFS">com.example.datalab.PREFS</string>
     <string name="LOGGEDIN">loggedin</string>
     <string name="action_logout">Sign Out</string>
+    <string name="open_game_license">OGL</string>
+    <string name="reference_open_starfinder_search">resourse_open_starfinder_search</string>
+    <string name="reference_open_sf_search_hint">refernce_open_sf_search_hint</string>
+    <string name="StarfinderOpenReference">StarfinderOpenReference</string>
+    <string name="action_ogl">OGL</string>
+    <string name="title_filter">Choose Spell Filters</string>
+    <string name="button_spell_level">Level</string>
+    <string name="button_spell_school">School</string>
+    <string name="button_spell_class">Class</string>
+    <string name="button_spell_range">Range</string>
+    <string name="button_spell_duration">Duration</string>
+    <string name="button_spell_save">Saves</string>
+    <string name="button_search">Search</string>
 </resources>

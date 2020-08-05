@@ -31,9 +31,8 @@ public class SignInActivity extends AppCompatActivity implements LoginFragment.L
             startActivity(intent);
             finish();;
         }
-
-
     }
+
     @Override
     public void login(String email, String pwd) {
 
