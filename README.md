@@ -12,6 +12,7 @@ Features implemented:
   -spell database filters 
   
   Associated User Stories:
+    
     - As a user I would like to find spells from Starfinder using various filters to reference
     them and their specifications. High Priority.
     
