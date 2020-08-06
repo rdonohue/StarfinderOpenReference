@@ -9,97 +9,357 @@
     app:layout_anchorGravity="center_horizontal"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/level_button"
-        android:layout_width="96dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/button_spell_level"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/title_main_act"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="@string/title_filter"
+        android:textAlignment="center"
         android:textSize="26sp"
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/class_button"
-        android:layout_width="96dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="32dp"
-        android:text="@string/button_spell_class"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-    <Button
-        android:id="@+id/school_button"
-        android:layout_width="96dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="@string/button_spell_school"
-        app:layout_constraintEnd_toStartOf="@+id/class_button"
-        app:layout_constraintStart_toEndOf="@+id/level_button"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-    <Button
-        android:id="@+id/range_button"
+    <TextView
+        android:id="@+id/class_text"
         android:layout_width="96dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="20dp"
-        android:text="@string/button_spell_range"
+        android:text="@string/text_spell_class"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/level_button" />
+        app:layout_constraintTop_toBottomOf="@+id/title_main_act" />
 
-    <Button
-        android:id="@+id/duration_button"
+    <TextView
+        android:id="@+id/level_text"
         android:layout_width="96dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="20dp"
-        android:text="@string/button_spell_duration"
-        app:layout_constraintEnd_toStartOf="@+id/button8"
-        app:layout_constraintStart_toEndOf="@+id/range_button"
-        app:layout_constraintTop_toBottomOf="@+id/school_button" />
+        android:text="@string/text_spell_level"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/class_text" />
+
+    <TextView
+        android:id="@+id/school_text"
+        android:layout_width="96dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/text_spell_school"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox_level5" />
+
+    <CheckBox
+        android:id="@+id/checkBox_evocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/checkbox_school_evoc"
+        app:layout_constraintStart_toEndOf="@+id/school_text"
+        app:layout_constraintStart_toStartOf="@+id/checkBox_divination"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox_divination" />
+
+    <CheckBox
+        android:id="@+id/checkBox_conjuration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/checkbox_school_conj"
+        app:layout_constraintStart_toEndOf="@+id/checkBox_abjuration"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox_level6" />
+
+    <CheckBox
+        android:id="@+id/checkBox_abjuration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/checkbox_school_abj"
+        app:layout_constraintStart_toEndOf="@+id/school_text"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox_level5" />
+
+    <CheckBox
+        android:id="@+id/checkBox_necromancy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/checkbox_school_nec"
+        app:layout_constraintStart_toStartOf="@+id/checkBox_evocation"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox_evocation" />
+
+    <CheckBox
+        android:id="@+id/checkBox_illusion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/checkbox_school_illu"
+        app:layout_constraintStart_toStartOf="@+id/checkBox_enchantment"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox_enchantment" />
+
+    <CheckBox
+        android:id="@+id/checkBox_enchantment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/checkbox_school_ench"
+        app:layout_constraintStart_toStartOf="@+id/checkBox_conjuration"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox_conjuration" />
+
+    <CheckBox
+        android:id="@+id/checkBox_transmutation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/checkbox_school_trans"
+        app:layout_constraintStart_toStartOf="@+id/checkBox_illusion"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox_illusion" />
+
+    <CheckBox
+        android:id="@+id/checkBox_divination"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/checkbox_school_div"
+        app:layout_constraintStart_toEndOf="@+id/school_text"
+        app:layout_constraintStart_toStartOf="@+id/checkBox_abjuration"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox_abjuration" />
+
+    <TextView
+        android:id="@+id/range_text"
+        android:layout_width="96dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/text_spell_range"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox_necromancy" />
+
+    <TextView
+        android:id="@+id/duration_text"
+        android:layout_width="96dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/text_spell_cast_time"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox_range_systemwide" />
+
+    <TextView
+        android:id="@+id/source_text"
+        android:layout_width="96dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/text_spell_source"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox_cast_1min" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/search_button"
         android:layout_width="126dp"
         android:layout_height="48dp"
-        android:layout_marginTop="42dp"
+        android:layout_marginBottom="20dp"
         android:text="@string/button_search"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/duration_button" />
+        app:layout_constraintHorizontal_bias="0.449"
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/button8"
-        android:layout_width="96dp"
+    <CheckBox
+        android:id="@+id/checkBox_class_mystic"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/checkbox_class_mystic"
+        app:layout_constraintEnd_toStartOf="@+id/checkBox_class_tech"
+        app:layout_constraintHorizontal_bias="0.586"
+        app:layout_constraintStart_toEndOf="@+id/class_text"
+        app:layout_constraintTop_toBottomOf="@+id/title_main_act" />
+
+    <CheckBox
+        android:id="@+id/checkBox_class_tech"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="32dp"
-        android:text="@string/button_spell_save"
+        android:text="@string/checkbox_class_technomancer"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/class_button" />
+        app:layout_constraintTop_toBottomOf="@+id/title_main_act" />
 
-    <View
-        android:id="@+id/divider"
-        android:layout_width="409dp"
-        android:layout_height="1dp"
-        android:background="?android:attr/listDivider"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <CheckBox
+        android:id="@+id/checkBox_level1"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/checkbox_level1"
+        app:layout_constraintEnd_toStartOf="@+id/checkBox_level2"
+        app:layout_constraintHorizontal_bias="0.29"
+        app:layout_constraintStart_toEndOf="@+id/level_text"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox_class_mystic" />
+
+    <CheckBox
+        android:id="@+id/checkBox_level3"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:text="@string/checkbox_level3"
+        app:layout_constraintEnd_toStartOf="@+id/checkBox_level4"
+        app:layout_constraintHorizontal_bias="0.296"
+        app:layout_constraintStart_toEndOf="@+id/level_text"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox_level1" />
+
+    <CheckBox
+        android:id="@+id/checkBox_level5"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:text="@string/checkbox_level5"
+        app:layout_constraintEnd_toStartOf="@+id/checkBox_level6"
+        app:layout_constraintHorizontal_bias="0.296"
+        app:layout_constraintStart_toEndOf="@+id/level_text"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox_level3" />
+
+    <CheckBox
+        android:id="@+id/checkBox_level2"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="32dp"
+        android:text="@string/checkbox_level2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.445" />
+        app:layout_constraintTop_toBottomOf="@+id/checkBox_class_tech" />
+
+    <CheckBox
+        android:id="@+id/checkBox_level4"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:text="@string/checkbox_level4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox_level2" />
+
+    <CheckBox
+        android:id="@+id/checkBox_level6"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:text="@string/checkbox_level6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox_level4" />
+
+    <CheckBox
+        android:id="@+id/checkBox_range_personal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/checkbox_range_personal"
+        app:layout_constraintStart_toStartOf="@+id/checkBox_necromancy"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox_necromancy" />
+
+    <CheckBox
+        android:id="@+id/checkBox_range_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/checkbox_range_close"
+        app:layout_constraintStart_toStartOf="@+id/checkBox_range_personal"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox_range_personal" />
+
+    <CheckBox
+        android:id="@+id/checkBox_range_long"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/checkbox_range_long"
+        app:layout_constraintStart_toStartOf="@+id/checkBox_range_close"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox_range_close" />
+
+    <CheckBox
+        android:id="@+id/checkBox_range_systemwide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/checkbox_range_system"
+        app:layout_constraintStart_toStartOf="@+id/checkBox_range_long"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox_range_long" />
+
+    <CheckBox
+        android:id="@+id/checkBox_range_touch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/checkbox_range_touch"
+        app:layout_constraintStart_toStartOf="@+id/checkBox_transmutation"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox_transmutation" />
+
+    <CheckBox
+        android:id="@+id/checkBox_range_planetary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/checkbox_range_planetary"
+        app:layout_constraintStart_toStartOf="@+id/checkBox_range_medium"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox_range_medium" />
+
+    <CheckBox
+        android:id="@+id/checkBox_range_medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/checkbox_range_medium"
+        app:layout_constraintStart_toStartOf="@+id/checkBox_range_touch"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox_range_touch" />
+
+    <CheckBox
+        android:id="@+id/checkBox_range_plane"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/checkbox_range_plane"
+        app:layout_constraintStart_toStartOf="@+id/checkBox_range_planetary"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox_range_planetary" />
+
+    <CheckBox
+        android:id="@+id/checkBox_cast_10min"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:text="@string/checkbox_cast_time_10min"
+        app:layout_constraintStart_toStartOf="@+id/checkBox_range_plane"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox_range_plane" />
+
+    <CheckBox
+        android:id="@+id/checkBox_cast_stdact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/checkbox_cast_time_stdact"
+        app:layout_constraintStart_toStartOf="@+id/checkBox_range_systemwide"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox_range_systemwide" />
+
+    <CheckBox
+        android:id="@+id/checkBox_cast_1min"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/checkbox_cast_time_1min"
+        app:layout_constraintStart_toStartOf="@+id/checkBox_cast_stdact"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox_cast_stdact" />
+
+    <CheckBox
+        android:id="@+id/checkBox_source_core"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/checkbox_sources_crb"
+        app:layout_constraintStart_toStartOf="@+id/checkBox_cast_1min"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox_cast_1min" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
