@@ -62,15 +62,6 @@
         app:layout_constraintTop_toBottomOf="@+id/checkBox_level5" />
 
     <CheckBox
-        android:id="@+id/checkBox_evocation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/checkbox_school_evoc"
-        app:layout_constraintStart_toEndOf="@+id/school_text"
-        app:layout_constraintStart_toStartOf="@+id/checkBox_divination"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox_divination" />
-
-    <CheckBox
         android:id="@+id/checkBox_conjuration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -84,11 +75,29 @@
         android:id="@+id/checkBox_abjuration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="@string/checkbox_school_abj"
         app:layout_constraintStart_toEndOf="@+id/school_text"
         app:layout_constraintTop_toBottomOf="@+id/checkBox_level5" />
+
+    <CheckBox
+        android:id="@+id/checkBox_divination"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/checkbox_school_div"
+        app:layout_constraintStart_toEndOf="@+id/school_text"
+        app:layout_constraintStart_toStartOf="@+id/checkBox_abjuration"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox_abjuration" />
+
+    <CheckBox
+        android:id="@+id/checkBox_evocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/checkbox_school_evoc"
+        app:layout_constraintStart_toEndOf="@+id/school_text"
+        app:layout_constraintStart_toStartOf="@+id/checkBox_divination"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox_divination" />
 
     <CheckBox
         android:id="@+id/checkBox_necromancy"
@@ -121,15 +130,6 @@
         android:text="@string/checkbox_school_trans"
         app:layout_constraintStart_toStartOf="@+id/checkBox_illusion"
         app:layout_constraintTop_toBottomOf="@+id/checkBox_illusion" />
-
-    <CheckBox
-        android:id="@+id/checkBox_divination"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/checkbox_school_div"
-        app:layout_constraintStart_toEndOf="@+id/school_text"
-        app:layout_constraintStart_toStartOf="@+id/checkBox_abjuration"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox_abjuration" />
 
     <TextView
         android:id="@+id/range_text"
@@ -185,10 +185,9 @@
         android:id="@+id/checkBox_class_mystic"
         android:layout_width="80dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
         android:text="@string/checkbox_class_mystic"
-        app:layout_constraintEnd_toStartOf="@+id/checkBox_class_tech"
-        app:layout_constraintHorizontal_bias="0.586"
         app:layout_constraintStart_toEndOf="@+id/class_text"
         app:layout_constraintTop_toBottomOf="@+id/title_main_act" />
 
@@ -197,30 +196,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="32dp"
         android:text="@string/checkbox_class_technomancer"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/checkBox_level2"
         app:layout_constraintTop_toBottomOf="@+id/title_main_act" />
 
     <CheckBox
         android:id="@+id/checkBox_level1"
-        android:layout_width="80dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:text="@string/checkbox_level1"
-        app:layout_constraintEnd_toStartOf="@+id/checkBox_level2"
-        app:layout_constraintHorizontal_bias="0.29"
         app:layout_constraintStart_toEndOf="@+id/level_text"
         app:layout_constraintTop_toBottomOf="@+id/checkBox_class_mystic" />
 
     <CheckBox
         android:id="@+id/checkBox_level3"
-        android:layout_width="80dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/checkbox_level3"
-        app:layout_constraintEnd_toStartOf="@+id/checkBox_level4"
-        app:layout_constraintHorizontal_bias="0.296"
-        app:layout_constraintStart_toEndOf="@+id/level_text"
+        app:layout_constraintStart_toStartOf="@+id/checkBox_level1"
         app:layout_constraintTop_toBottomOf="@+id/checkBox_level1" />
 
     <CheckBox
@@ -228,37 +223,33 @@
         android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:text="@string/checkbox_level5"
-        app:layout_constraintEnd_toStartOf="@+id/checkBox_level6"
-        app:layout_constraintHorizontal_bias="0.296"
-        app:layout_constraintStart_toEndOf="@+id/level_text"
+        app:layout_constraintStart_toStartOf="@+id/checkBox_level3"
         app:layout_constraintTop_toBottomOf="@+id/checkBox_level3" />
 
     <CheckBox
         android:id="@+id/checkBox_level2"
         android:layout_width="80dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginStart="51dp"
+        android:layout_marginTop="16dp"
         android:text="@string/checkbox_level2"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/checkBox_level1"
         app:layout_constraintTop_toBottomOf="@+id/checkBox_class_tech" />
 
     <CheckBox
         android:id="@+id/checkBox_level4"
         android:layout_width="80dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
         android:text="@string/checkbox_level4"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/checkBox_level2"
         app:layout_constraintTop_toBottomOf="@+id/checkBox_level2" />
 
     <CheckBox
         android:id="@+id/checkBox_level6"
         android:layout_width="80dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
         android:text="@string/checkbox_level6"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/checkBox_level4"
         app:layout_constraintTop_toBottomOf="@+id/checkBox_level4" />
 
     <CheckBox
@@ -300,16 +291,16 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/checkbox_range_touch"
-        app:layout_constraintStart_toStartOf="@+id/checkBox_transmutation"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox_transmutation" />
+        app:layout_constraintTop_toBottomOf="@+id/checkBox_transmutation"
+        tools:layout_editor_absoluteX="272dp" />
 
     <CheckBox
-        android:id="@+id/checkBox_range_planetary"
+        android:id="@+id/checkBox_range_plane"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/checkbox_range_planetary"
-        app:layout_constraintStart_toStartOf="@+id/checkBox_range_medium"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox_range_medium" />
+        android:text="@string/checkbox_range_plane"
+        app:layout_constraintStart_toStartOf="@+id/checkBox_range_planetary"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox_range_planetary" />
 
     <CheckBox
         android:id="@+id/checkBox_range_medium"
@@ -320,12 +311,12 @@
         app:layout_constraintTop_toBottomOf="@+id/checkBox_range_touch" />
 
     <CheckBox
-        android:id="@+id/checkBox_range_plane"
+        android:id="@+id/checkBox_range_planetary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/checkbox_range_plane"
-        app:layout_constraintStart_toStartOf="@+id/checkBox_range_planetary"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox_range_planetary" />
+        android:text="@string/checkbox_range_planetary"
+        app:layout_constraintStart_toStartOf="@+id/checkBox_range_medium"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox_range_medium" />
 
     <CheckBox
         android:id="@+id/checkBox_cast_10min"
