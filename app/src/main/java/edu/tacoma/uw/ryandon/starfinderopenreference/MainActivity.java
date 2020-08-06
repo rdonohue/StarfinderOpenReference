@@ -14,8 +14,15 @@ import java.util.logging.Level;
 
 import edu.tacoma.uw.ryandon.starfinderopenreference.filters.LevelFilterFragment;
 
+import edu.tacoma.uw.ryandon.starfinderopenreference.authenticate.SignInActivity;
+
 public class MainActivity extends AppCompatActivity {
 
+
+    /**
+     * The overriden onCreate method setting our layout to main activity.
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

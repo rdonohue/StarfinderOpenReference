@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+      <string name="CREATE_MEMBERS_SQL">
+    CREATE TABLE IF NOT EXISTS Members
+    (MemberID TEXT PRIMARY KEY,
+          FirstName TEXT,
+          LastName TEXT,
+          Username TEXT,
+          Email TEXT,
+          Password TEXT)
+</string>
+
+    <string name="DROP_MEMBERS_SQL">
+    DROP TABLE IF EXISTS Members
+</string>
+</resources>

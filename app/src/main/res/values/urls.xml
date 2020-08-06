@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="register"> https://loginandpreferences.herokuapp.com/register</string>
+    <string name="login"> https://loginandpreferences.herokuapp.com/login</string>
+
+</resources>
