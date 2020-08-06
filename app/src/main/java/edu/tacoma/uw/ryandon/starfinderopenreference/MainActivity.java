@@ -6,9 +6,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import edu.tacoma.uw.ryandon.starfinderopenreference.authenticate.SignInActivity;
+
 public class MainActivity extends AppCompatActivity {
 
-    //this is a test comment
+    /**
+     * The overriden onCreate method setting our layout to main activity.
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,5 +24,6 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, OGLPage.class);
         startActivity(intent);
     }
+
 }
 

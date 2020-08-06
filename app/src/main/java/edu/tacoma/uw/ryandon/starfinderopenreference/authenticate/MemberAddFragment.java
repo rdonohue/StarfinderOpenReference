@@ -1,5 +1,8 @@
 package edu.tacoma.uw.ryandon.starfinderopenreference.authenticate;
 
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.fragment.app.Fragment;
 
 import org.json.JSONException;
@@ -22,7 +26,10 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import edu.tacoma.uw.ryandon.starfinderopenreference.MainActivity;
+import edu.tacoma.uw.ryandon.starfinderopenreference.OGLPage;
 import edu.tacoma.uw.ryandon.starfinderopenreference.R;
+import edu.tacoma.uw.ryandon.starfinderopenreference.authenticate.SignInActivity;
 import edu.tacoma.uw.ryandon.starfinderopenreference.data.MembersDB;
 import edu.tacoma.uw.ryandon.starfinderopenreference.model.Members;
 
@@ -31,6 +38,7 @@ public class MemberAddFragment extends Fragment  {
     public AddListener mAddListener;
     private MemberAddFragmentListener mMemberAddFragmentListener;
     private Members member;
+    private SignInActivity signInActivity;
     public  interface AddListener{
 
     }
@@ -42,16 +50,27 @@ public class MemberAddFragment extends Fragment  {
     }
 
 
-
+    /**
+     * Overriding the onCreate function of the lifecycle.
+     * @param savedInstanceState the saved instance state bundle.
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        mAddListener = (AddListener) getActivity();
+
 
     }
 
+    /**
+     * This method inflates the member_add_fragment and puts user input into a new member object, which is then added
+     * to the heroku database.
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(final LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.member_add_fragment, container, false);
         getActivity().setTitle("Add a New Member");
@@ -85,6 +104,7 @@ public class MemberAddFragment extends Fragment  {
 
             }
         });
+
 
 
         return v;

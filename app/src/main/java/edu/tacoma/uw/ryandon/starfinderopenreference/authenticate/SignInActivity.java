@@ -9,6 +9,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -25,15 +26,23 @@ import edu.tacoma.uw.ryandon.starfinderopenreference.MainActivity;
 import edu.tacoma.uw.ryandon.starfinderopenreference.R;
 import edu.tacoma.uw.ryandon.starfinderopenreference.model.Members;
 
+
 public class SignInActivity extends AppCompatActivity implements LoginFragment.LoginFragmentListener {
     private JSONObject mMembersJSON;
     private SharedPreferences mSharedPreferences;
 
     private boolean logInApproved;
     private String LOG_IN = "Login";
-    private Object SignInActivity;
-    private Handler h;
+    public void ReturnButton(View view){
+        Intent intent = new Intent(this, SignInActivity.class);
+        startActivity(intent);
+    }
 
+
+    /**
+     * Sets up the fragment support manager and intent based off the login preferences of the user.
+     * @param savedInstanceState a Bundle that represents the saved instance state of the application.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +53,7 @@ public class SignInActivity extends AppCompatActivity implements LoginFragment.L
 
         if (mSharedPreferences.getBoolean(getString(R.string.LOGGEDIN), true)) {
             getSupportFragmentManager().beginTransaction()
+
                     .add(R.id.sign_in_fragment_container, new LoginFragment())
                     .commit();
         } else {
@@ -56,7 +66,12 @@ public class SignInActivity extends AppCompatActivity implements LoginFragment.L
     }
 
 
-
+    /**
+     * The implementation of the login method which first checks for user logged in preferences and then runs an asynchronous task
+     * grabbing information from the members database and checking it against the user input login credentials.
+     * @param email the user input email.
+     * @param pwd the user input password.
+     */
     @Override
     public void login(String email, String pwd) {
 
@@ -73,7 +88,10 @@ public class SignInActivity extends AppCompatActivity implements LoginFragment.L
 
 
             //we go to main activity if we are signing in , well need another method called register where login was instantiated?
+            getSupportFragmentManager().beginTransaction()
 
+                    .add(R.id.sign_in_fragment_container, new LoginFragment())
+                    .commit();
             Intent i = new Intent(this, MainActivity.class);
             startActivity(i);
             finish();
@@ -119,7 +137,9 @@ public class SignInActivity extends AppCompatActivity implements LoginFragment.L
     }
 
 
-
+    /**
+     * This method brings the user into the register activity
+     */
     @Override
     public void register() {
         Intent i = new Intent(this, RegisterActivity.class);
@@ -129,7 +149,11 @@ public class SignInActivity extends AppCompatActivity implements LoginFragment.L
 
     public class AddMembersAsyncTask extends AsyncTask<String, Void, String> {
 
-
+        /**
+         * This is the overriden background method that posts to the login url.
+         * @param urls the url visited during the asynchronous task.
+         * @return
+         */
         @Override
         protected String doInBackground(String... urls) {
             String response = "";
@@ -172,6 +196,10 @@ public class SignInActivity extends AppCompatActivity implements LoginFragment.L
             return response;
         }
 
+        /**
+         * This is the overriden onPostExecute method that will change the boolean value allowing entry into the program behind the login screen.
+         * @param s a String of data passed on thru onPostExecute.
+         */
         @Override
         protected void onPostExecute(String s) {
 

@@ -23,14 +23,23 @@ public class LoginFragment extends Fragment {
     }
 
 
-
-
+    /**
+     * Calling the super onCreate method.
+     * @param savedInstanceState the saved instance state.
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
     }
 
+    /**
+     * Overrides onCreateView, adds new fragment listener, and sets logic for the login button.
+     * @param inflater inflater for the view.
+     * @param container a ViewGroup container
+     * @param savedInstanceState the saved instance state.
+     * @return
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -43,6 +52,10 @@ public class LoginFragment extends Fragment {
 
         Button loginButton = view.findViewById(R.id.loginButton);
         loginButton.setOnClickListener(new View.OnClickListener() {
+            /**
+             * This method checks to see if there is valid login credentials by calling the login method.
+             * @param v current view for the click.
+             */
             @Override
             public void onClick(View v){
                 String email = emailText.getText().toString();
@@ -67,6 +80,10 @@ public class LoginFragment extends Fragment {
         });
         Button registerButton = view.findViewById(R.id.btn_register);
         registerButton.setOnClickListener(new View.OnClickListener() {
+            /**
+             * This method calls on login to register members to the application.
+             * @param v current view for the click.
+             */
             @Override
             public void onClick(View v){
                 mLoginFragmentListener.register();

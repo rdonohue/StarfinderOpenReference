@@ -27,9 +27,12 @@ public class RegisterActivity extends AppCompatActivity implements MemberAddFrag
 
     public static final String ADD_MEMBER = "ADD_Member";
     private JSONObject mMembersJSON;
-    private MembersDB mMembersDB;
-    private List<Members> mMembersList;
-    private boolean loginGood;
+
+
+    /**
+     * This method sets up the content view and fragment manager for the registration of new members.
+     * @param savedInstanceState a Bundle object representing the saved instance state of the application.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +48,10 @@ public class RegisterActivity extends AppCompatActivity implements MemberAddFrag
 
     }
 
-
+    /**
+     * This method adds members to the database by creating a JSON object and running an asynchronous task to access the heroku backend.
+     * @param members The member object to be added to the database .
+     */
     @Override
     public void addMember(Members members) {
 
@@ -69,7 +75,11 @@ public class RegisterActivity extends AppCompatActivity implements MemberAddFrag
         }
     }
     public  class AddMembersAsyncTask extends AsyncTask<String, Void, String> {
-
+        /**
+         * This method connects to the heroku login url in the background
+         * @param urls the heroku website address that can query the login functions.
+         * @return the response from the heroku server
+         */
         @Override
         protected String doInBackground(String... urls) {
             String response = "";
@@ -109,6 +119,10 @@ public class RegisterActivity extends AppCompatActivity implements MemberAddFrag
             return response;
         }
 
+        /**
+         * This method reads the incoming JSON from heroku and displays relevant error and success messages to the developer.
+         * @param s a String denoting the JSON object being sent
+         */
         @Override
         protected void onPostExecute(String s) {
 
@@ -136,35 +150,7 @@ public class RegisterActivity extends AppCompatActivity implements MemberAddFrag
             }
 
 
-//            try {
-//                JSONObject jsonObject = new JSONObject(s);
-//
-//                if (jsonObject.getBoolean("success")) {
-//                    mMembersList = Members.parseCourseJson(
-//                            jsonObject.getString("register"));
-//                    if (mMembersDB == null) {
-//                        mMembersDB = new MembersDB(getApplicationContext());
-//                    }
-//
-//                    // Delete old data so that you can refresh the local
-//                    // database with the network data.
-//                    mMembersDB.deleteMembers();
-//
-//                    // Also, add to the local database
-//                    for (int i = 0; i < mMembersList.size(); i++) {
-//                        Members members = mMembersList.get(i);
-//                        mMembersDB.insertMembers(members.getmMemberID(),
-//                                members.getmFirstName(),
-//                                members.getmLastName(),
-//                                members.getmUsername(),
-//                                members.getmEmail(),
-//                                members.getmPassword());
-//                    }
-//                }
-//            } catch (JSONException e) {
-//                Toast.makeText(getApplicationContext(), "JSON Error: " + e.getMessage(),
-//                        Toast.LENGTH_SHORT).show();
-//            }
+
         }
 
     }
