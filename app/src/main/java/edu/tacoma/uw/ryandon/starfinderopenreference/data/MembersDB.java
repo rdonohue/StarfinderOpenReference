@@ -36,12 +36,12 @@ public class MembersDB {
     public boolean insertMembers(String id, String firstName, String lastName, String username, String email, String password) {
 
         ContentValues contentValues = new ContentValues();
-        contentValues.put("MembersID", id);
-        contentValues.put("FirstName", firstName);
-        contentValues.put("LastName", lastName);
-        contentValues.put("Username", username);
-        contentValues.put("Email", email);
-        contentValues.put("Password", password);
+
+        contentValues.put("firstname", firstName);
+        contentValues.put("lastname", lastName);
+        contentValues.put("username", username);
+        contentValues.put("email", email);
+        contentValues.put("password", password);
 
         long rowId = mSQLiteDatabase.insert("Members", null, contentValues);
         return rowId != -1;
@@ -60,7 +60,7 @@ public class MembersDB {
     public List<Members> getMembers() {
 
         String[] columns = {
-                "MembersID", "FirstName", "LastName", "Username", "Email", "Password"
+                 "FirstName", "LastName", "Username", "Email", "Password"
         };
 
         Cursor c = mSQLiteDatabase.query(
@@ -75,13 +75,13 @@ public class MembersDB {
         c.moveToFirst();
         List<Members> list = new ArrayList<Members>();
         for (int i=0; i<c.getCount(); i++) {
-            String id = c.getString(0);
-            String firstName = c.getString(1);
-            String lastName = c.getString(2);
+            String firstName = c.getString(0);
+            String lastName = c.getString(1);
+            String email = c.getString(2);
             String username = c.getString(3);
-            String email = c.getString(4);
-            String password = c.getString(5);
-            Members member = new Members(id, firstName, lastName, username,email,password);
+            String password = c.getString(4);
+
+            Members member = new Members( firstName, lastName, username,email,password);
             list.add(member);
             c.moveToNext();
         }

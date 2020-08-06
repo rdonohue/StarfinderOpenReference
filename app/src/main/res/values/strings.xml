@@ -3,8 +3,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="sign_in">Sign In</string>
-    <string name="LOGIN_PREFS">com.example.datalab.PREFS</string>
-    <string name="LOGGEDIN">loggedin</string>
+    <string name="LOGIN_PREFS">edu.tacoma.uw.ryandon.starfinderopenreference.PREFS</string>
+    <string name="LOGGEDIN" value="false">loggedin</string>
     <string name="action_logout">Sign Out</string>
     <string name="enter_member_id_hint">add menu id</string>
     <string name="enter_member_first_name_hint">enter first name</string>

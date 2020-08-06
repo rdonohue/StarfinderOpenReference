@@ -69,22 +69,23 @@ public class Members implements Serializable {
 
 
 
-    public static final String ID = "MemberID";
-    public static final String FIRST_NAME ="FirstName";
-    public static final String LAST_NAME = "LastName";
-    public static final String USERNAME = "Username";
-    public static final String EMAIL = "Email";
-    public static final String PASSWORD = "Password";
+
+    public static final String FIRST_NAME ="first";
+    public static final String LAST_NAME = "last";
+    public static final String USERNAME = "username";
+    public static final String EMAIL = "email";
+    public static final String PASSWORD = "password";
 
 
 
 
-    public Members(String memberID, String memberFirst, String memberLast, String memberUser, String memberEmail, String memberPass) {
-        mMemberID = memberID;
+    public Members(String memberFirst, String memberLast, String memberEmail, String memberUser, String memberPass) {
+
         mFirstName = memberFirst;
         mLastName = memberLast;
-        mUsername = memberUser;
         mEmail = memberEmail;
+        mUsername = memberUser;
+
         mPassword = memberPass;
 
     }
@@ -98,7 +99,7 @@ public class Members implements Serializable {
 
             for(int i = 0; i < arr.length(); i++){
                 JSONObject obj = arr.getJSONObject(i);
-                Members member = new Members(obj.getString(Members.ID),
+                Members member = new Members(
                         obj.getString(Members.FIRST_NAME),
                         obj.getString(Members.LAST_NAME),
                         obj.getString(Members.USERNAME),

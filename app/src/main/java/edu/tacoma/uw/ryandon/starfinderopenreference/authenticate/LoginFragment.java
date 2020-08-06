@@ -62,7 +62,7 @@ public class LoginFragment extends Fragment {
                 }
 
 
-                mLoginFragmentListener.login(emailText.getText().toString(), pwdText.getText().toString());
+                mLoginFragmentListener.login(email, pwd);
             }
         });
         Button registerButton = view.findViewById(R.id.btn_register);
@@ -81,6 +81,7 @@ public class LoginFragment extends Fragment {
 
         public void login(String email, String pwd);
         public void register();
+
     }
 
 }

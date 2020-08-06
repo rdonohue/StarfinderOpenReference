@@ -31,14 +31,14 @@ public class MembersContent {
     }
 
     private static Members createMemberItem(int position) {
-        return new Members( "MemberID" + position,  "FirstName" + position,
-                "LastName" + position, "UserName" + position,
-                "Email" + position,  "Password" + position);
+        return new Members(   "FirstName" + position,
+                "LastName" + position, "Email" + position, "UserName" + position,
+                 "Password" + position);
     }
 
     private static String makeDetails(int position) {
         StringBuilder builder = new StringBuilder();
-        builder.append("Details about Course: ").append(position);
+        builder.append("Details about Member: ").append(position);
         for (int i = 0; i < position; i++) {
             builder.append("\nMore details information here.");
         }
