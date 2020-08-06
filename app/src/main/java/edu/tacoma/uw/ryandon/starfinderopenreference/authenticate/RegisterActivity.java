@@ -20,7 +20,7 @@ import java.util.List;
 
 //import edu.tacoma.uw.ryandon.starfinderopenreference.MembersDetailActivity;
 import edu.tacoma.uw.ryandon.starfinderopenreference.R;
-import edu.tacoma.uw.ryandon.starfinderopenreference.data.MembersDB;
+//import edu.tacoma.uw.ryandon.starfinderopenreference.data.MembersDB;
 import edu.tacoma.uw.ryandon.starfinderopenreference.model.Members;
 
 public class RegisterActivity extends AppCompatActivity implements MemberAddFragment.MemberAddFragmentListener {

@@ -30,7 +30,7 @@ import edu.tacoma.uw.ryandon.starfinderopenreference.MainActivity;
 import edu.tacoma.uw.ryandon.starfinderopenreference.OGLPage;
 import edu.tacoma.uw.ryandon.starfinderopenreference.R;
 import edu.tacoma.uw.ryandon.starfinderopenreference.authenticate.SignInActivity;
-import edu.tacoma.uw.ryandon.starfinderopenreference.data.MembersDB;
+//import edu.tacoma.uw.ryandon.starfinderopenreference.data.MembersDB;
 import edu.tacoma.uw.ryandon.starfinderopenreference.model.Members;
 
 public class MemberAddFragment extends Fragment  {
