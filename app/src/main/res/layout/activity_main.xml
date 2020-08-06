@@ -291,8 +291,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/checkbox_range_touch"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox_transmutation"
-        tools:layout_editor_absoluteX="272dp" />
+        app:layout_constraintStart_toStartOf="@+id/checkBox_transmutation"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox_transmutation" />
 
     <CheckBox
         android:id="@+id/checkBox_range_plane"
