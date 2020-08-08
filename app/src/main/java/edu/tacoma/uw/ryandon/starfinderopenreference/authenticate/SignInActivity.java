@@ -27,12 +27,14 @@ import edu.tacoma.uw.ryandon.starfinderopenreference.R;
 import edu.tacoma.uw.ryandon.starfinderopenreference.model.Members;
 
 
-public class SignInActivity extends AppCompatActivity implements LoginFragment.LoginFragmentListener {
+public class SignInActivity extends AppCompatActivity implements LoginFragmentListener {
     private JSONObject mMembersJSON;
     private SharedPreferences mSharedPreferences;
 
     private boolean logInApproved;
     private String LOG_IN = "Login";
+
+
     public void ReturnButton(View view){
         Intent intent = new Intent(this, SignInActivity.class);
         startActivity(intent);
@@ -53,7 +55,6 @@ public class SignInActivity extends AppCompatActivity implements LoginFragment.L
 
         if (mSharedPreferences.getBoolean(getString(R.string.LOGGEDIN), true)) {
             getSupportFragmentManager().beginTransaction()
-
                     .add(R.id.sign_in_fragment_container, new LoginFragment())
                     .commit();
         } else {
@@ -97,41 +98,17 @@ public class SignInActivity extends AppCompatActivity implements LoginFragment.L
         } else{
             StringBuilder url = new StringBuilder(getString(R.string.login));
             mMembersJSON = new JSONObject();
+
             try {
 
                 mMembersJSON.put(Members.EMAIL, email);
                 mMembersJSON.put(Members.PASSWORD,pwd);
 
-
-                new SignInActivity.AddMembersAsyncTask().execute(url.toString());
-                if(logInApproved){
-                    Log.d("tag","logInApproved second if statement");
-                    mSharedPreferences
-                            .edit()
-                            .putBoolean(getString(R.string.LOGGEDIN), true)
-                            .commit();
-
-
-                    //we go to main activity if we are signing in , well need another method called register where login was instantiated?
-
-                    Intent i = new Intent(this, MainActivity.class);
-                    startActivity(i);
-                    finish();
-                    return;
-                }
-
-
             } catch (JSONException e) {
                 Toast.makeText(this, "Error with JSON creation on logging in: "
                         + e.getMessage(), Toast.LENGTH_SHORT).show();
-
             }
-
-
         }
-
-
-
     }
 
 
@@ -142,7 +119,6 @@ public class SignInActivity extends AppCompatActivity implements LoginFragment.L
     public void register() {
         Intent i = new Intent(this, RegisterActivity.class);
         startActivity(i);
-        finish();
     }
 
     public class AddMembersAsyncTask extends AsyncTask<String, Void, String> {
@@ -231,4 +207,6 @@ public class SignInActivity extends AppCompatActivity implements LoginFragment.L
             }
         }
     }
+
+
 }

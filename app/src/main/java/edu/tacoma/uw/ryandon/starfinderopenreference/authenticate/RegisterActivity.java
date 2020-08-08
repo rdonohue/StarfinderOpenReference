@@ -23,7 +23,7 @@ import edu.tacoma.uw.ryandon.starfinderopenreference.R;
 //import edu.tacoma.uw.ryandon.starfinderopenreference.data.MembersDB;
 import edu.tacoma.uw.ryandon.starfinderopenreference.model.Members;
 
-public class RegisterActivity extends AppCompatActivity implements MemberAddFragment.MemberAddFragmentListener {
+public class RegisterActivity extends AppCompatActivity implements MemberAddFragmentListener {
 
     public static final String ADD_MEMBER = "ADD_Member";
     private JSONObject mMembersJSON;
@@ -42,10 +42,6 @@ public class RegisterActivity extends AppCompatActivity implements MemberAddFrag
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.register_fragment_container, new MemberAddFragment())
                     .commit();
-
-
-
-
     }
 
     /**
@@ -148,10 +144,6 @@ public class RegisterActivity extends AppCompatActivity implements MemberAddFrag
                         , Toast.LENGTH_LONG).show();
                 Log.e(ADD_MEMBER, e.getMessage());
             }
-
-
-
         }
-
     }
 }

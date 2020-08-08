@@ -19,13 +19,17 @@
             </intent-filter>
         </activity>
         <activity android:name=".OGLPage" />
-        <activity android:name=".authenticate.RegisterActivity" />
+        <!-- Using the back button on Register screen should return to Sign in -->
+        <activity
+            android:name=".authenticate.RegisterActivity"
+            android:parentActivityName=".authenticate.SignInActivity"
+            />
         <activity android:name=".MainActivity">
-            <intent-filter>
+            <!--intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter-->
         </activity>
     </application>
 

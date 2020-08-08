@@ -12,10 +12,6 @@ import android.widget.ToggleButton;
 
 import java.util.logging.Level;
 
-import edu.tacoma.uw.ryandon.starfinderopenreference.filters.LevelFilterFragment;
-
-import edu.tacoma.uw.ryandon.starfinderopenreference.authenticate.SignInActivity;
-
 public class MainActivity extends AppCompatActivity {
 
 

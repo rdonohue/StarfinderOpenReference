@@ -67,7 +67,7 @@ public class LoginFragment extends Fragment {
                     emailText.requestFocus();
                 }
                 else if (TextUtils.isEmpty(pwd) || pwd.length() < 6) {
-                    Toast.makeText(v.getContext(),"Enter a valid password( atleast 6 characters)"
+                    Toast.makeText(v.getContext(),"Enter a valid password(at least 6 characters)"
                             ,Toast.LENGTH_SHORT)
                             .show();
                     pwdText.requestFocus();
@@ -92,13 +92,4 @@ public class LoginFragment extends Fragment {
 
         return  view;
     }
-
-
-    public static interface LoginFragmentListener {
-
-        public void login(String email, String pwd);
-        public void register();
-
-    }
-
 }

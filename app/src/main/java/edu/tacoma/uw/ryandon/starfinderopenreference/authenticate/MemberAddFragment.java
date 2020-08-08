@@ -110,9 +110,5 @@ public class MemberAddFragment extends Fragment  {
         return v;
     }
 
-    public static interface MemberAddFragmentListener {
-         public void addMember(Members members);
-    }
-
 
 }

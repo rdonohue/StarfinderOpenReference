@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="username_hint">Enter a Username</string>
+    <string name="password_hint">Enter your password</string>
+    <string name="login_button">LOGIN</string>
+    <string name="register_button">REGISTER</string>
+</resources>
