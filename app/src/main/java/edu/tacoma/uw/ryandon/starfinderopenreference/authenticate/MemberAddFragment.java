@@ -35,10 +35,10 @@ import edu.tacoma.uw.ryandon.starfinderopenreference.model.Members;
 
 public class MemberAddFragment extends Fragment  {
 
-    public AddListener mAddListener;
+
     private MemberAddFragmentListener mMemberAddFragmentListener;
     private Members member;
-    private SignInActivity signInActivity;
+
     public  interface AddListener{
 
     }
@@ -57,7 +57,10 @@ public class MemberAddFragment extends Fragment  {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+//        SignInActivity.fragmentManager.beginTransaction()
+//                .add(R.id.register_fragment_container, new MemberAddFragment())
+//                .addToBackStack(null)
+//                .commit();
 
     }
 
@@ -99,7 +102,6 @@ public class MemberAddFragment extends Fragment  {
                 if (mMemberAddFragmentListener != null) {
 
                     mMemberAddFragmentListener.addMember(member);
-
                 }
 
             }

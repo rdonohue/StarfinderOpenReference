@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import edu.tacoma.uw.ryandon.starfinderopenreference.MainActivity;
 import edu.tacoma.uw.ryandon.starfinderopenreference.R;
 
 
@@ -32,6 +33,7 @@ public class LoginFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+//
     }
 
     /**

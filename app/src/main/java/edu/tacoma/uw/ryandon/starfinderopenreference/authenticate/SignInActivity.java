@@ -1,6 +1,8 @@
 package edu.tacoma.uw.ryandon.starfinderopenreference.authenticate;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
 
 import android.content.Context;
 import android.content.Intent;
@@ -27,7 +29,12 @@ import edu.tacoma.uw.ryandon.starfinderopenreference.R;
 import edu.tacoma.uw.ryandon.starfinderopenreference.model.Members;
 
 
+
 public class SignInActivity extends AppCompatActivity implements LoginFragmentListener {
+
+
+    public static FragmentManager fragmentManager;
+
     private JSONObject mMembersJSON;
     private SharedPreferences mSharedPreferences;
 
@@ -35,10 +42,12 @@ public class SignInActivity extends AppCompatActivity implements LoginFragmentLi
     private String LOG_IN = "Login";
 
 
+
     public void ReturnButton(View view){
         Intent intent = new Intent(this, SignInActivity.class);
         startActivity(intent);
     }
+
 
 
     /**
@@ -49,13 +58,14 @@ public class SignInActivity extends AppCompatActivity implements LoginFragmentLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
-
+        fragmentManager = getSupportFragmentManager();
         mSharedPreferences = getSharedPreferences(getString(R.string.LOGIN_PREFS)
                 , Context.MODE_PRIVATE);
 
         if (mSharedPreferences.getBoolean(getString(R.string.LOGGEDIN), true)) {
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.sign_in_fragment_container, new LoginFragment())
+                    .addToBackStack(null)
                     .commit();
         } else {
             Intent intent = new Intent(this, MainActivity.class);
@@ -85,8 +95,7 @@ public class SignInActivity extends AppCompatActivity implements LoginFragmentLi
                     .commit();
             //we go to main activity if we are signing in , well need another method called register where login was instantiated?
 //            getSupportFragmentManager().beginTransaction()
-//                    .add(R.id.sign_in_fragment_container, new LoginFragment())
-//                    .commit();
+
             Intent i = new Intent(this, MainActivity.class);
             startActivity(i);
 //            finish();
@@ -99,6 +108,28 @@ public class SignInActivity extends AppCompatActivity implements LoginFragmentLi
                 mMembersJSON.put(Members.EMAIL, email);
                 mMembersJSON.put(Members.PASSWORD,pwd);
                 new SignInActivity.AddMembersAsyncTask().execute(url.toString());
+
+                if(logInApproved){
+                    Log.d("tag","logInApproved second if statement");
+                    mSharedPreferences
+                            .edit()
+                            .putBoolean(getString(R.string.LOGGEDIN), true)
+                            .commit();
+
+
+                    //we go to main activity if we are signing in , well need another method called register where login was instantiated?
+//                    getSupportFragmentManager().beginTransaction()
+//                            .add(R.id.sign_in_fragment_container, new LoginFragment())
+//                            .addToBackStack(null)
+//                            .commit();
+                    Intent i = new Intent(this, MainActivity.class);
+                    startActivity(i);
+                    finish();
+                    return;
+                }
+
+
+
             } catch (JSONException e) {
                 Toast.makeText(this, "Error with JSON creation on logging in: "
                         + e.getMessage(), Toast.LENGTH_SHORT).show();
@@ -167,7 +198,7 @@ public class SignInActivity extends AppCompatActivity implements LoginFragmentLi
 
         /**
          * This is the overriden onPostExecute method that will change the boolean value allowing entry into the program behind the login screen.
-         * @param s a String of data passed on thru onPostExecute.
+         * @param s a String of data passed on through onPostExecute.
          */
         @Override
         protected void onPostExecute(String s) {

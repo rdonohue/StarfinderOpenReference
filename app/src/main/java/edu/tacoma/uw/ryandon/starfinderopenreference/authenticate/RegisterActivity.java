@@ -1,8 +1,10 @@
 package edu.tacoma.uw.ryandon.starfinderopenreference.authenticate;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,6 +21,7 @@ import java.net.URL;
 import java.util.List;
 
 //import edu.tacoma.uw.ryandon.starfinderopenreference.MembersDetailActivity;
+import edu.tacoma.uw.ryandon.starfinderopenreference.MainActivity;
 import edu.tacoma.uw.ryandon.starfinderopenreference.R;
 //import edu.tacoma.uw.ryandon.starfinderopenreference.data.MembersDB;
 import edu.tacoma.uw.ryandon.starfinderopenreference.model.Members;
@@ -41,7 +44,17 @@ public class RegisterActivity extends AppCompatActivity implements MemberAddFrag
 
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.register_fragment_container, new MemberAddFragment())
+                    .addToBackStack(null)
                     .commit();
+
+//        Intent intent = new Intent(this, SignInActivity.class);
+//        startActivity(intent);
+//        finish();
+
+
+
+
+
     }
 
     /**
@@ -69,7 +82,11 @@ public class RegisterActivity extends AppCompatActivity implements MemberAddFrag
             Toast.makeText(this, "Error with JSON creation on addng a Member: "
                     + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
+
+
+
     }
+
     public  class AddMembersAsyncTask extends AsyncTask<String, Void, String> {
         /**
          * This method connects to the heroku login url in the background
