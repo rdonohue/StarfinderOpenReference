@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -73,9 +74,8 @@ public class LoginFragment extends Fragment {
                     pwdText.requestFocus();
 
                 }
-
-
-                mLoginFragmentListener.login(email, pwd);
+                Log.d("Login Button", "Login button on-click");
+                mLoginFragmentListener.login(emailText.getText().toString(), pwdText.getText().toString());
             }
         });
         Button registerButton = view.findViewById(R.id.btn_register);

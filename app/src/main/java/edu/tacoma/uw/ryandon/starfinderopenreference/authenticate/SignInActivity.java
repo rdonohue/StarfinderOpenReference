@@ -78,32 +78,27 @@ public class SignInActivity extends AppCompatActivity implements LoginFragmentLi
         //we should look courses to see how the sql values were analyzed in android studio.
         //put async get class here for the login in post
         //how do i access the members table from heroku
-        if(logInApproved){
-
+        if(logInApproved) {
             mSharedPreferences
                     .edit()
                     .putBoolean(getString(R.string.LOGGEDIN), true)
                     .commit();
-
-
             //we go to main activity if we are signing in , well need another method called register where login was instantiated?
-            getSupportFragmentManager().beginTransaction()
-
-                    .add(R.id.sign_in_fragment_container, new LoginFragment())
-                    .commit();
+//            getSupportFragmentManager().beginTransaction()
+//                    .add(R.id.sign_in_fragment_container, new LoginFragment())
+//                    .commit();
             Intent i = new Intent(this, MainActivity.class);
             startActivity(i);
-            finish();
+//            finish();
             return;
         } else{
+            Log.d("Login else statement", "LoginApproved = false");
             StringBuilder url = new StringBuilder(getString(R.string.login));
             mMembersJSON = new JSONObject();
-
             try {
-
                 mMembersJSON.put(Members.EMAIL, email);
                 mMembersJSON.put(Members.PASSWORD,pwd);
-
+                new SignInActivity.AddMembersAsyncTask().execute(url.toString());
             } catch (JSONException e) {
                 Toast.makeText(this, "Error with JSON creation on logging in: "
                         + e.getMessage(), Toast.LENGTH_SHORT).show();

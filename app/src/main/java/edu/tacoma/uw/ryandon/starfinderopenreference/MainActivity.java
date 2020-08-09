@@ -1,16 +1,9 @@
 package edu.tacoma.uw.ryandon.starfinderopenreference;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.View;
-import android.widget.CompoundButton;
-import android.widget.ToggleButton;
 
-import java.util.logging.Level;
 
 public class MainActivity extends AppCompatActivity {
 
