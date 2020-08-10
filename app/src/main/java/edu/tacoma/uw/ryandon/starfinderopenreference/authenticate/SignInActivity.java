@@ -108,7 +108,7 @@ public class SignInActivity extends AppCompatActivity implements LoginFragmentLi
                 mMembersJSON.put(Members.PASSWORD,pwd);
                 new SignInActivity.AddMembersAsyncTask().execute(url.toString());
 
-                if(logInApproved){
+       if(logInApproved){
                     mSharedPreferences
                             .edit()
                             .putBoolean(getString(R.string.LOGGEDIN), true)
@@ -128,12 +128,18 @@ public class SignInActivity extends AppCompatActivity implements LoginFragmentLi
 
 
 
+
             } catch (JSONException e) {
                 Toast.makeText(this, "Error with JSON creation on logging in: "
                         + e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         }
-    }
+
+
+
+        }
+
+
 
 
     /**
@@ -214,7 +220,18 @@ public class SignInActivity extends AppCompatActivity implements LoginFragmentLi
 
 
                     logInApproved = true;
+                    if(logInApproved) {
+                        mSharedPreferences
+                                .edit()
+                                .putBoolean(getString(R.string.LOGGEDIN), true)
+                                .commit();
 
+
+                        Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                        startActivity(i);
+
+
+                    }
                     return;
 
                 } else {
