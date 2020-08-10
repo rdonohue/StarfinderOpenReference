@@ -50,11 +50,6 @@ public class RegisterActivity extends AppCompatActivity implements MemberAddFrag
 //        Intent intent = new Intent(this, SignInActivity.class);
 //        startActivity(intent);
 //        finish();
-
-
-
-
-
     }
 
     /**

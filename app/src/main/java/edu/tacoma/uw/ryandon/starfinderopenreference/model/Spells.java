@@ -29,52 +29,26 @@ public class Spells implements Serializable {
         return spellID;
     }
 
-    public void setSpellID(String spellID) {
-        this.spellID = spellID;
-    }
-
     public String getSpellName() {
         return spellName;
-    }
-
-    public void setSpellName(String spellName) {
-        this.spellName = spellName;
     }
 
     public String getClassName() {
         return className;
     }
 
-    public void setClassName(String className) {
-        this.className = className;
-    }
-
     public String getSpellLevel() {
         return spellLevel;
     }
 
-    public void setSpellLevel(String spellLevel) {
-        this.spellLevel = spellLevel;
-    }
-
     public String getSpellSchool() { return spellSchool; }
-
-    public void setSpellSchool(String spellSchool) { this.spellSchool = spellSchool; }
 
     public String getSpellRange() {
         return spellRange;
     }
 
-    public void setSpellRange(String spellRange) {
-        this.spellRange = spellRange;
-    }
-
     public String getSpellCastTime() {
         return spellCastTime;
-    }
-
-    public void setSpellCastTime(String spellCastTime) {
-        this.spellCastTime = spellCastTime;
     }
 
     public Spells(String theSpell, String theClass, String theLevel, String theSchool, String theRange, String theCastTime) {
@@ -88,7 +62,7 @@ public class Spells implements Serializable {
 
     }
 
-    public static List<Spells> parseCourseJson(String spellsJson) throws JSONException {
+    public static List<Spells> parseSpellsJson(String spellsJson) throws JSONException {
         List<Spells> spellsList = new ArrayList<>();
 
         if(spellsJson != null){
