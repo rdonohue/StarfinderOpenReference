@@ -101,7 +101,6 @@ public class SignInActivity extends AppCompatActivity implements LoginFragmentLi
 //            finish();
             return;
         } else{
-            Log.d("Login else statement", "LoginApproved = false");
             StringBuilder url = new StringBuilder(getString(R.string.login));
             mMembersJSON = new JSONObject();
             try {
@@ -110,7 +109,6 @@ public class SignInActivity extends AppCompatActivity implements LoginFragmentLi
                 new SignInActivity.AddMembersAsyncTask().execute(url.toString());
 
                 if(logInApproved){
-                    Log.d("tag","logInApproved second if statement");
                     mSharedPreferences
                             .edit()
                             .putBoolean(getString(R.string.LOGGEDIN), true)
