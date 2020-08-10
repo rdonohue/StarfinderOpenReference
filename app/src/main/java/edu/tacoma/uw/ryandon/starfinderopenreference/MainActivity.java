@@ -92,16 +92,16 @@ public class MainActivity extends AppCompatActivity {
                     URL urlObject = new URL(url);
                     urlConnection = (HttpURLConnection) urlObject.openConnection();
                     urlConnection.setRequestMethod("GET");
-                    urlConnection.setRequestProperty("Content-Type", "application/json");
+                    urlConnection.setRequestProperty("User-Agent", "Accept-Language");
                     urlConnection.setDoOutput(true);
-                    OutputStreamWriter wr =
-                            new OutputStreamWriter(urlConnection.getOutputStream());
+                    InputStreamReader reader =
+                            new InputStreamReader(urlConnection.getInputStream());
 
                     // For Debugging
                     Log.i("GET_SPELL", mSpellsJson.toString());
-                    wr.write(mSpellsJson.toString());
-                    wr.flush();
-                    wr.close();
+                    reader.read();
+                    //reader.flush();
+                    reader.close();
 
                     InputStream content = urlConnection.getInputStream();
 
