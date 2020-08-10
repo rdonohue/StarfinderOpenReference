@@ -76,7 +76,6 @@ public class LoginFragment extends Fragment {
                     pwdText.requestFocus();
 
                 }
-                Log.d("Login Button", "Login button on-click");
                 mLoginFragmentListener.login(emailText.getText().toString(), pwdText.getText().toString());
             }
         });

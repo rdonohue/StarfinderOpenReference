@@ -101,13 +101,33 @@ public class SignInActivity extends AppCompatActivity implements LoginFragmentLi
 //            finish();
             return;
         } else{
-            Log.d("Login else statement", "LoginApproved = false");
             StringBuilder url = new StringBuilder(getString(R.string.login));
             mMembersJSON = new JSONObject();
             try {
                 mMembersJSON.put(Members.EMAIL, email);
                 mMembersJSON.put(Members.PASSWORD,pwd);
                 new SignInActivity.AddMembersAsyncTask().execute(url.toString());
+
+       if(logInApproved){
+                    mSharedPreferences
+                            .edit()
+                            .putBoolean(getString(R.string.LOGGEDIN), true)
+                            .commit();
+
+
+                    //we go to main activity if we are signing in , well need another method called register where login was instantiated?
+//                    getSupportFragmentManager().beginTransaction()
+//                            .add(R.id.sign_in_fragment_container, new LoginFragment())
+//                            .addToBackStack(null)
+//                            .commit();
+                    Intent i = new Intent(this, MainActivity.class);
+                    startActivity(i);
+                    finish();
+                    return;
+                }
+
+
+
 
             } catch (JSONException e) {
                 Toast.makeText(this, "Error with JSON creation on logging in: "
