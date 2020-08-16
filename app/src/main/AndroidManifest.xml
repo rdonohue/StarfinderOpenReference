@@ -3,7 +3,8 @@
     package="edu.tacoma.uw.ryandon.starfinderopenreference">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,6 +12,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity
+            android:name="edu.tacoma.uw.ryandon.starfinderopenreference.SpellListActivity"
+            android:label="@string/title_spell_list"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name="edu.tacoma.uw.ryandon.starfinderopenreference.SpellDetailActivity"
+            android:label="@string/title_spell_detail"
+            android:parentActivityName="edu.tacoma.uw.ryandon.starfinderopenreference.SpellListActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="edu.tacoma.uw.ryandon.starfinderopenreference.edu.tacoma.uw.ryandon.starfinderopenreference.SpellListActivity" />
+        </activity>
         <activity android:name=".authenticate.SignInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,18 +32,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".OGLPage" />
-        <!-- Using the back button on Register screen should return to Sign in -->
+        <activity android:name=".OGLPage" /> <!-- Using the back button on Register screen should return to Sign in -->
         <activity
             android:name=".authenticate.RegisterActivity"
-            android:parentActivityName=".authenticate.SignInActivity"
-            />
+            android:parentActivityName=".authenticate.SignInActivity" />
         <activity android:name=".MainActivity">
-            <!--intent-filter>
+
+            <!--
+            intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter-->
+            </intent-filter
+            -->
         </activity>
     </application>
 
