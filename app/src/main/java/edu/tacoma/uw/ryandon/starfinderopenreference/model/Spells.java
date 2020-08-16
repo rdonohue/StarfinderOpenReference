@@ -88,7 +88,7 @@ public class Spells implements Serializable {
 
     }
 
-    public static List<Spells> parseCourseJson(String spellsJson) throws JSONException {
+    public static List<Spells> parseSpellsJson(String spellsJson) throws JSONException {
         List<Spells> spellsList = new ArrayList<>();
 
         if(spellsJson != null){
