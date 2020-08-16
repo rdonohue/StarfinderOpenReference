@@ -205,8 +205,10 @@ public class SpellListActivity extends AppCompatActivity {
                 JSONObject jsonObject = new JSONObject(s);
                 if (jsonObject.getBoolean("success")) {
                     Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_LONG).show();
-                    Log.e("Check Async", "json got the stuff");
                     mSpellList = Spell.parseSpellsJson(jsonObject.getString("spells"));
+
+                    //Filter spells from the JSONObject HERE
+
                     if (!mSpellList.isEmpty()) {
                         setupRecyclerView((RecyclerView) mRecyclerView);
                     }

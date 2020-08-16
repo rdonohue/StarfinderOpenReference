@@ -125,19 +125,12 @@ public class SignInActivity extends AppCompatActivity implements LoginFragmentLi
                     finish();
                     return;
                 }
-
-
-
-
             } catch (JSONException e) {
                 Toast.makeText(this, "Error with JSON creation on logging in: "
                         + e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         }
-
-
-
-        }
+    }
 
 
 
