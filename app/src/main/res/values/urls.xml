@@ -2,10 +2,10 @@
 <resources>
     <string name="register"> https://loginandpreferences.herokuapp.com/register</string>
     <string name="login"> https://loginandpreferences.herokuapp.com/login</string>
-<<<<<<< HEAD
+
     <string name="spells"> https://loginandpreferences.herokuapp.com/spells</string>
-=======
-    <string name="spells">https://loginandpreferences.herokuapp.com/spells</string>
->>>>>>> 06313c1ee75e5458b2c2d323e90d586e1f06e239
+
+
+
 
 </resources>
