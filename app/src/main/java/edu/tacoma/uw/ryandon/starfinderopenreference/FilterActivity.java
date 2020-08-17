@@ -2,45 +2,34 @@ package edu.tacoma.uw.ryandon.starfinderopenreference;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentManager;
 
-import android.content.Context;
 import android.content.Intent;
 
-import android.content.SharedPreferences;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.CheckBox;
-import android.widget.Toast;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.net.HttpURLConnection;
-import java.net.URL;
 
-import edu.tacoma.uw.ryandon.starfinderopenreference.model.MembersContent;
-
-
-public class MainActivity extends AppCompatActivity {
+public class FilterActivity extends AppCompatActivity {
 
 
     public static FragmentManager fragmentManager;
-    private JSONObject mSpellsJson;
     private CheckBox classMystic, classTechnomancer, spellLevel0, spellLevel1
             , spellLevel2, spellLevel3, spellLevel4, spellLevel5, spellLevel6, schoolAbj
             , schoolConj, schoolDiv, schoolEnch, schoolEvoc, schoolIllu, schoolNec
             , schoolTran, rangePersonal, rangeTouch, rangeClose, rangeMedium
             , rangeLong, rangePlanetary, rangeSystem, rangePlane, castStandard
             , castMinute, castTenMinutes;
+    private boolean classMysticCheck, classTechnomancerCheck, spellLevel0Check, spellLevel1Check
+            , spellLevel2Check, spellLevel3Check, spellLevel4Check, spellLevel5Check, spellLevel6Check
+            , schoolAbjCheck, schoolConjCheck, schoolDivCheck, schoolEnchCheck, schoolEvocCheck
+            , schoolIlluCheck, schoolNecCheck, schoolTranCheck, rangePersonalCheck, rangeTouchCheck
+            , rangeCloseCheck, rangeMediumCheck, rangeLongCheck, rangePlanetaryCheck, rangeSystemCheck
+            , rangePlaneCheck, castStandardCheck, castMinuteCheck, castTenMinutesCheck;
 
     /**
      * The overriden onCreate method setting our layout to main activity.
@@ -49,8 +38,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_filter);
         fragmentManager = getSupportFragmentManager();
+        checkboxInit();
 //        StringBuilder url = new StringBuilder(getString(R.string.spells));
 //        mSpellsJson = new JSONObject();
 //        new GetSpellsAsyncTask().execute(url.toString());
@@ -62,23 +52,23 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    public void onCheckboxClicked(View view) {
-        // Is the view now checked?
-        boolean checked = ((CheckBox) view).isChecked();
-
-        // Check which checkbox was clicked
-        switch(view.getId()) {
-            case R.id.checkBox_class_mystic:
-                if (checked) {
-                    // Spell filter clicked
-
-                } else {
-                    // Spell filter un-clicked
-
-                }
-                break;
-        }
-    }
+//    public void onCheckboxClicked(View view) {
+//        // Is the view now checked?
+//        boolean checked = ((CheckBox) view).isChecked();
+//
+//        // Check which checkbox was clicked
+//        switch(view.getId()) {
+//            case R.id.checkBox_class_mystic:
+//                if (checked) {
+//                    // Spell filter clicked
+//
+//                } else {
+//                    // Spell filter un-clicked
+//
+//                }
+//                break;
+//        }
+//    }
 
 //    public class GetSpellsAsyncTask extends AsyncTask<String, Void, String> {
 //
@@ -163,9 +153,46 @@ public class MainActivity extends AppCompatActivity {
 
     public void searchButton(View view) {
         Intent intent = new Intent(this, SpellListActivity.class);
+        filterIsChecked();
+        intent.putExtra("classMysticCheck", classMysticCheck);
+        intent.putExtra("classTechnomancerCheck", classTechnomancerCheck);
         startActivity(intent);
     }
 
+    private void filterIsChecked() {
+        classMysticCheck = classMystic.isChecked();
+        classTechnomancerCheck = classTechnomancer.isChecked();
+        spellLevel0Check = spellLevel0.isChecked();
+        spellLevel1Check = spellLevel1.isChecked();
+        spellLevel2Check = spellLevel2.isChecked();
+        spellLevel3Check = spellLevel3.isChecked();
+        spellLevel4Check = spellLevel4.isChecked();
+        spellLevel5Check = spellLevel5.isChecked();
+        spellLevel6Check = spellLevel6.isChecked();
+        schoolAbjCheck = schoolAbj.isChecked();
+        schoolConjCheck = schoolConj.isChecked();
+        schoolDivCheck = schoolDiv.isChecked();
+        schoolEnchCheck = schoolEnch.isChecked();
+        schoolEvocCheck = schoolEvoc.isChecked();
+        schoolIlluCheck = schoolIllu.isChecked();
+        schoolNecCheck = schoolNec.isChecked();
+        schoolTranCheck = schoolTran.isChecked();
+        rangePersonalCheck = rangePersonal.isChecked();
+        rangeTouchCheck = rangeTouch.isChecked();
+        rangeCloseCheck = rangeClose.isChecked();
+        rangeMediumCheck = rangeMedium.isChecked();
+        rangeLongCheck = rangeLong.isChecked();
+        rangePlanetaryCheck = rangePlanetary.isChecked();
+        rangeSystemCheck = rangeSystem.isChecked();
+        rangePlaneCheck = rangePlane.isChecked();
+        castStandardCheck = castStandard.isChecked();
+        castMinuteCheck = castMinute.isChecked();
+        castTenMinutesCheck = castTenMinutes.isChecked();
+    }
+
+    /**
+     * Initializes all the checkboxes on for use with the filters.
+     */
     private void checkboxInit() {
         classMystic = findViewById(R.id.checkBox_class_mystic);
         classTechnomancer = findViewById(R.id.checkBox_class_tech);

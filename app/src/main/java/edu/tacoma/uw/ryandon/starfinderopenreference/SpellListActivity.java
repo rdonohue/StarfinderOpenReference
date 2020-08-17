@@ -17,6 +17,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,6 +33,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -51,6 +53,12 @@ public class SpellListActivity extends AppCompatActivity {
     private boolean mTwoPane;
     private List<Spell> mSpellList;
     private RecyclerView mRecyclerView;
+    private boolean classMysticCheck, classTechnomancerCheck, spellLevel0Check, spellLevel1Check
+            , spellLevel2Check, spellLevel3Check, spellLevel4Check, spellLevel5Check, spellLevel6Check
+            , schoolAbjCheck, schoolConjCheck, schoolDivCheck, schoolEnchCheck, schoolEvocCheck
+            , schoolIlluCheck, schoolNecCheck, schoolTranCheck, rangePersonalCheck, rangeTouchCheck
+            , rangeCloseCheck, rangeMediumCheck, rangeLongCheck, rangePlanetaryCheck, rangeSystemCheck
+            , rangePlaneCheck, castStandardCheck, castMinuteCheck, castTenMinutesCheck;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,6 +86,9 @@ public class SpellListActivity extends AppCompatActivity {
             mTwoPane = true;
         }
 
+        classMysticCheck = getIntent().getBooleanExtra("classMysticCheck", false);
+        classTechnomancerCheck = getIntent().getBooleanExtra("classTechnomancerCheck", false);
+
         mRecyclerView = findViewById(R.id.spell_list);
         assert mRecyclerView != null;
         setupRecyclerView(mRecyclerView);
@@ -93,7 +104,7 @@ public class SpellListActivity extends AppCompatActivity {
 
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
         if (mSpellList != null)
-            recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(this, mSpellList, mTwoPane));
+            recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(this, filterSpells(mSpellList), mTwoPane));
     }
 
     /**
@@ -217,7 +228,23 @@ public class SpellListActivity extends AppCompatActivity {
                Toast.makeText(getApplicationContext(), "JSON Error: " + e.getMessage(), Toast.LENGTH_LONG);
             }
         }
-
-
     }
+
+    private List<Spell> filterSpells(List<Spell> theSpellList) {
+        List<Spell> filteredList =  new ArrayList<>();
+
+        for (Spell s : theSpellList) {
+            if (classMysticCheck && !s.getClassName().equals("Mystic")) {
+                filteredList.add(s);
+            }
+            if (classTechnomancerCheck && !s.getClassName().equals("Technomancer")) {
+                filteredList.add(s);
+            }
+        }
+        theSpellList.removeAll(filteredList);
+        if (theSpellList.isEmpty())
+            return filteredList;
+
+        return theSpellList;
+    };
 }
