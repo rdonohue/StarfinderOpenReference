@@ -151,14 +151,50 @@ public class FilterActivity extends AppCompatActivity {
 //        }
 //    }
 
+    /**
+     * On click method for the Search button.
+     *
+     * @param view
+     */
     public void searchButton(View view) {
         Intent intent = new Intent(this, SpellListActivity.class);
         filterIsChecked();
         intent.putExtra("classMysticCheck", classMysticCheck);
         intent.putExtra("classTechnomancerCheck", classTechnomancerCheck);
+        intent.putExtra("spellLevel0Check", spellLevel0Check);
+        intent.putExtra("spellLevel1Check", spellLevel1Check);
+        intent.putExtra("spellLevel2Check", spellLevel2Check);
+        intent.putExtra("spellLevel3Check", spellLevel3Check);
+        intent.putExtra("spellLevel4Check", spellLevel4Check);
+        intent.putExtra("spellLevel5Check", spellLevel5Check);
+        intent.putExtra("spellLevel6Check", spellLevel6Check);
+        intent.putExtra("schoolAbjCheck", schoolAbjCheck);
+        intent.putExtra("schoolConjCheck", schoolConjCheck);
+        intent.putExtra("schoolDivCheck", schoolDivCheck);
+        intent.putExtra("schoolEnchCheck", schoolEnchCheck);
+        intent.putExtra("schoolEvocCheck", schoolEvocCheck);
+        intent.putExtra("schoolIlluCheck", schoolIlluCheck);
+        intent.putExtra("schoolNecCheck", schoolNecCheck);
+        intent.putExtra("schoolTranCheck", schoolTranCheck);
+        intent.putExtra("rangePersonalCheck", rangePersonalCheck);
+        intent.putExtra("rangeTouchCheck", rangeTouchCheck);
+        intent.putExtra("rangeCloseCheck", rangeCloseCheck);
+        intent.putExtra("rangeMediumCheck", rangeMediumCheck);
+        intent.putExtra("rangeLongCheck", rangeLongCheck);
+        intent.putExtra("rangePlanetaryCheck", rangePlanetaryCheck);
+        intent.putExtra("rangeSystemCheck", rangeSystemCheck);
+        intent.putExtra("rangePlaneCheck", rangePlaneCheck);
+        intent.putExtra("castStandardCheck", castStandardCheck);
+        intent.putExtra("castMinuteCheck", castMinuteCheck);
+        intent.putExtra("castTenMinutesCheck", castTenMinutesCheck);
+
         startActivity(intent);
     }
 
+    /**
+     * Helper method to for determining which checkboxes are selected for filters upon Searching
+     *
+     */
     private void filterIsChecked() {
         classMysticCheck = classMystic.isChecked();
         classTechnomancerCheck = classTechnomancer.isChecked();
