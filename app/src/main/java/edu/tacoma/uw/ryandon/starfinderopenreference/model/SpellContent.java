@@ -9,36 +9,35 @@ public class SpellContent {
     /**
      * An array of sample (dummy) items.
      */
-    public static final List<Spells> SPELLS = new ArrayList<Spells>();
+    public static final List<Spell> SPELLS = new ArrayList<Spell>();
 
     /**
      * A map of sample (dummy) items, by ID.
      */
-    public static final Map<String, Spells> ITEM_MAP = new HashMap<String, Spells>();
+    public static final Map<String, Spell> ITEM_MAP = new HashMap<String, Spell>();
 
     private static final int COUNT = 25;
 
-//    static {
-//        // Add some sample items.
-//        for (int i = 1; i <= COUNT; i++) {
-//            addSpell(createMemberItem(i));
-//        }
-//    }
+    static {
+        // Add some sample items.
+        for (int i = 1; i <= COUNT; i++) {
+            addSpell(createSpellItem(i));
+        }
+    }
 
-    private static void addSpell(Spells spell) {
+    private static void addSpell(Spell spell) {
         SPELLS.add(spell);
         ITEM_MAP.put(spell.getSpellID(), spell);
     }
 
-    private static Members createMemberItem(int position) {
-        return new Members(   "FirstName" + position,
-                "LastName" + position, "Email" + position, "UserName" + position,
-                "Password" + position);
+    private static Spell createSpellItem(int position) {
+        return new Spell( "Name" + position, "Class" + position, "Level" + position
+        , "School" + position, "Range" + position, "Cast Time" + position, "Description" + position);
     }
 
     private static String makeDetails(int position) {
         StringBuilder builder = new StringBuilder();
-        builder.append("Details about Member: ").append(position);
+        builder.append("Details about Spell: ").append(position);
         for (int i = 0; i < position; i++) {
             builder.append("\nMore details information here.");
         }
@@ -48,12 +47,12 @@ public class SpellContent {
     /**
      * A dummy item representing a piece of content.
      */
-    public static class MemberItem {
+    public static class SpellItem {
         public final String id;
         public final String content;
         public final String details;
 
-        public MemberItem(String id, String content, String details) {
+        public SpellItem(String id, String content, String details) {
             this.id = id;
             this.content = content;
             this.details = details;

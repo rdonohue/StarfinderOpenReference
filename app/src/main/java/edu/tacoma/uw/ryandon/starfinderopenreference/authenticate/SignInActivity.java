@@ -88,7 +88,7 @@ public class SignInActivity extends AppCompatActivity implements LoginFragmentLi
         //we should look courses to see how the sql values were analyzed in android studio.
         //put async get class here for the login in post
         //how do i access the members table from heroku
-        if(logInApproved) {
+        if (logInApproved) {
             mSharedPreferences
                     .edit()
                     .putBoolean(getString(R.string.LOGGEDIN), true)
@@ -100,7 +100,7 @@ public class SignInActivity extends AppCompatActivity implements LoginFragmentLi
             startActivity(i);
 //            finish();
             return;
-        } else{
+        } else {
             StringBuilder url = new StringBuilder(getString(R.string.login));
             mMembersJSON = new JSONObject();
             try {
@@ -108,7 +108,7 @@ public class SignInActivity extends AppCompatActivity implements LoginFragmentLi
                 mMembersJSON.put(Members.PASSWORD,pwd);
                 new SignInActivity.AddMembersAsyncTask().execute(url.toString());
 
-       if(logInApproved){
+                if (logInApproved) {
                     mSharedPreferences
                             .edit()
                             .putBoolean(getString(R.string.LOGGEDIN), true)

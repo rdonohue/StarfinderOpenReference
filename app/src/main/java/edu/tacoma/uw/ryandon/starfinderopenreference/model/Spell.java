@@ -8,14 +8,15 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Spells implements Serializable {
+public class Spell implements Serializable {
 
     public static final String SPELL_NAME ="name";
-    public static final String CLASS_NAME = "class";
+    public static final String CLASS_NAME = "classname";
     public static final String LEVEL = "level";
     public static final String SCHOOL = "school";
     public static final String RANGE = "range";
-    public static final String CAST_TIME = "cast time";
+    public static final String CAST_TIME = "casttime";
+    public static final String DESC = "shortdesc";
 
     private String spellID;
     private String spellName;
@@ -24,6 +25,9 @@ public class Spells implements Serializable {
     private String spellSchool;
     private String spellRange;
     private String spellCastTime;
+    private String spellDescription;
+
+    public String getSpellDescription() { return spellDescription; }
 
     public String getSpellID() {
         return spellID;
@@ -51,19 +55,19 @@ public class Spells implements Serializable {
         return spellCastTime;
     }
 
-    public Spells(String theSpell, String theClass, String theLevel, String theSchool, String theRange, String theCastTime) {
+    public Spell(String theName, String theClass, String theLevel, String theSchool, String theRange, String theCastTime, String theDescription) {
 
-        spellName = theSpell;
+        spellName = theName;
         className = theClass;
         spellLevel = theLevel;
-        spellRange = theSchool;
-        spellLevel = theRange;
+        spellSchool = theSchool;
+        spellRange = theRange;
         spellCastTime = theCastTime;
-
+        spellDescription = theDescription;
     }
 
-    public static List<Spells> parseSpellsJson(String spellsJson) throws JSONException {
-        List<Spells> spellsList = new ArrayList<>();
+    public static List<Spell> parseSpellsJson(String spellsJson) throws JSONException {
+        List<Spell> spellList = new ArrayList<>();
 
         if(spellsJson != null){
             JSONArray arr = new JSONArray(spellsJson);
@@ -71,17 +75,18 @@ public class Spells implements Serializable {
 
             for(int i = 0; i < arr.length(); i++){
                 JSONObject obj = arr.getJSONObject(i);
-                Spells spell = new Spells(
-                        obj.getString(Spells.SPELL_NAME),
-                        obj.getString(Spells.CLASS_NAME),
-                        obj.getString(Spells.LEVEL),
-                        obj.getString(Spells.SCHOOL),
-                        obj.getString(Spells.RANGE),
-                        obj.getString(Spells.CAST_TIME));
-                spellsList.add(spell);
+                Spell spell = new Spell(
+                        obj.getString(Spell.SPELL_NAME),
+                        obj.getString(Spell.CLASS_NAME),
+                        obj.getString(Spell.LEVEL),
+                        obj.getString(Spell.SCHOOL),
+                        obj.getString(Spell.RANGE),
+                        obj.getString(Spell.CAST_TIME),
+                        obj.getString(Spell.DESC));
+                spellList.add(spell);
             }
         }
 
-        return spellsList;
+        return spellList;
     }
 }

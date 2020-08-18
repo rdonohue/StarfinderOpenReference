@@ -20,6 +20,7 @@
     <string name="text_spell_cast_time">Cast Time</string>
     <string name="text_spell_source">Sources</string>
     <string name="button_search">Search</string>
+    <string name="checkbox_level0">Level 0</string>
     <string name="checkbox_level1">Level 1</string>
     <string name="checkbox_level2">Level 2</string>
     <string name="checkbox_level3">Level 3</string>
@@ -57,5 +58,7 @@
     <string name="enter_member_email_hint">enter an email</string>
     <string name="member_add_course_btn">Create Account</string>
     <string name="member_add__btn">Create Account</string>
+    <string name="title_spell_list">Spells</string>
+    <string name="title_spell_detail">Spell Detail</string>
 
 </resources>

@@ -27,7 +27,7 @@ public class MembersContent {
 
     private static void addItem(Members item) {
         ITEMS.add(item);
-        ITEM_MAP.put(item.getmMemberID(), item);
+        ITEM_MAP.put(item.getmUsername(), item);
     }
 
     private static Members createMemberItem(int position) {

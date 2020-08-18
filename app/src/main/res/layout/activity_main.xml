@@ -162,6 +162,7 @@
         android:layout_width="126dp"
         android:layout_height="48dp"
         android:layout_marginBottom="20dp"
+        android:onClick="searchButton"
         android:text="@string/button_search"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -332,5 +333,14 @@
         android:text="@string/checkbox_cast_time_1min"
         app:layout_constraintStart_toStartOf="@+id/checkBox_cast_stdact"
         app:layout_constraintTop_toBottomOf="@+id/checkBox_cast_stdact" />
+
+    <CheckBox
+        android:id="@+id/checkBox_level0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/checkbox_level0"
+        app:layout_constraintBaseline_toBaselineOf="@+id/checkBox_level3"
+        app:layout_constraintEnd_toStartOf="@+id/checkBox_level3"
+        app:layout_constraintStart_toStartOf="@+id/level_text" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
