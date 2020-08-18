@@ -1,7 +1,6 @@
 package edu.tacoma.uw.ryandon.starfinderopenreference.authenticate;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 
 import android.content.Context;
@@ -9,7 +8,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -24,7 +22,7 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import edu.tacoma.uw.ryandon.starfinderopenreference.MainActivity;
+import edu.tacoma.uw.ryandon.starfinderopenreference.FilterActivity;
 import edu.tacoma.uw.ryandon.starfinderopenreference.R;
 import edu.tacoma.uw.ryandon.starfinderopenreference.model.Members;
 
@@ -68,7 +66,7 @@ public class SignInActivity extends AppCompatActivity implements LoginFragmentLi
                     .addToBackStack(null)
                     .commit();
         } else {
-            Intent intent = new Intent(this, MainActivity.class);
+            Intent intent = new Intent(this, FilterActivity.class);
             startActivity(intent);
             finish();
         }
@@ -96,7 +94,7 @@ public class SignInActivity extends AppCompatActivity implements LoginFragmentLi
             //we go to main activity if we are signing in , well need another method called register where login was instantiated?
 //            getSupportFragmentManager().beginTransaction()
 
-            Intent i = new Intent(this, MainActivity.class);
+            Intent i = new Intent(this, FilterActivity.class);
             startActivity(i);
 //            finish();
             return;
@@ -120,24 +118,17 @@ public class SignInActivity extends AppCompatActivity implements LoginFragmentLi
 //                            .add(R.id.sign_in_fragment_container, new LoginFragment())
 //                            .addToBackStack(null)
 //                            .commit();
-                    Intent i = new Intent(this, MainActivity.class);
+                    Intent i = new Intent(this, FilterActivity.class);
                     startActivity(i);
                     finish();
                     return;
                 }
-
-
-
-
             } catch (JSONException e) {
                 Toast.makeText(this, "Error with JSON creation on logging in: "
                         + e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         }
-
-
-
-        }
+    }
 
 
 
@@ -227,7 +218,7 @@ public class SignInActivity extends AppCompatActivity implements LoginFragmentLi
                                 .commit();
 
 
-                        Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                        Intent i = new Intent(getApplicationContext(), FilterActivity.class);
                         startActivity(i);
 
 

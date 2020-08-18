@@ -1,10 +1,8 @@
 package edu.tacoma.uw.ryandon.starfinderopenreference.authenticate;
 
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,10 +16,8 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.List;
 
 //import edu.tacoma.uw.ryandon.starfinderopenreference.MembersDetailActivity;
-import edu.tacoma.uw.ryandon.starfinderopenreference.MainActivity;
 import edu.tacoma.uw.ryandon.starfinderopenreference.R;
 //import edu.tacoma.uw.ryandon.starfinderopenreference.data.MembersDB;
 import edu.tacoma.uw.ryandon.starfinderopenreference.model.Members;

@@ -8,7 +8,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Spell implements Serializable {
+public class Spell implements Serializable, Cloneable {
 
     public static final String SPELL_NAME ="name";
     public static final String CLASS_NAME = "classname";
@@ -64,6 +64,22 @@ public class Spell implements Serializable {
         spellRange = theRange;
         spellCastTime = theCastTime;
         spellDescription = theDescription;
+    }
+
+
+    /**
+     * Copy constructor for creating copies of previously instantiated spell objects.
+     *
+     * @param anotherSpell the spell containing all the fields to be copied
+     */
+    public Spell (Spell anotherSpell) {
+        spellName = anotherSpell.getSpellName();
+        className = anotherSpell.getClassName();
+        spellLevel = anotherSpell.getSpellLevel();
+        spellSchool = anotherSpell.getSpellSchool();
+        spellRange = anotherSpell.getSpellRange();
+        spellCastTime = anotherSpell.getSpellCastTime();
+        spellDescription = anotherSpell.getSpellDescription();
     }
 
     public static List<Spell> parseSpellsJson(String spellsJson) throws JSONException {

@@ -6,6 +6,7 @@
     <string name="LOGIN_PREFS">edu.tacoma.uw.ryandon.starfinderopenreference.PREFS</string>
     <string name="LOGGEDIN" value="false">loggedin</string>
     <string name="action_logout">Sign Out</string>
+    <string name="invalid_pwd">Enter valid password (at least 6 characters)</string>
 
     <string name="open_game_license">OGL</string>
     <string name="reference_open_starfinder_search">resourse_open_starfinder_search</string>
