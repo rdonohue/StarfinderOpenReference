@@ -7,8 +7,6 @@
     android:background="@drawable/space_background"
     tools:context=".authenticate.LoginFragment">
 
-
-
     <Button
         android:id="@+id/btn_register"
         style="@style/ButtonStyleRegister"
@@ -74,7 +72,30 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="sans-serif-black"
+        android:text="@string/StarfinderOpenReference"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/sf_sign_in_icon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/sf_open_ref_icon2"
+        android:tint="@color/material_on_background_disabled"
+        app:layout_constraintBottom_toTopOf="@+id/error_text_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
