@@ -6,11 +6,14 @@ import androidx.fragment.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
+import android.widget.VideoView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -56,6 +59,8 @@ public class SignInActivity extends AppCompatActivity implements LoginFragmentLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
+
+
         fragmentManager = getSupportFragmentManager();
         mSharedPreferences = getSharedPreferences(getString(R.string.LOGIN_PREFS)
                 , Context.MODE_PRIVATE);
@@ -81,21 +86,17 @@ public class SignInActivity extends AppCompatActivity implements LoginFragmentLi
     @Override
     public void login(String email, String pwd) {
 
-        // in here we want to check if the email and pwd match a member in our members database
-        //we should look courses to see how the sql values were analyzed in android studio.
-        //put async get class here for the login in post
-        //how do i access the members table from heroku
+
         if (logInApproved) {
             mSharedPreferences
                     .edit()
                     .putBoolean(getString(R.string.LOGGEDIN), true)
                     .commit();
-            //we go to main activity if we are signing in , well need another method called register where login was instantiated?
-//            getSupportFragmentManager().beginTransaction()
+
 
             Intent i = new Intent(this, FilterActivity.class);
             startActivity(i);
-//            finish();
+
             return;
         } else {
             StringBuilder url = new StringBuilder(getString(R.string.login));
@@ -112,11 +113,7 @@ public class SignInActivity extends AppCompatActivity implements LoginFragmentLi
                             .commit();
 
 
-                    //we go to main activity if we are signing in , well need another method called register where login was instantiated?
-//                    getSupportFragmentManager().beginTransaction()
-//                            .add(R.id.sign_in_fragment_container, new LoginFragment())
-//                            .addToBackStack(null)
-//                            .commit();
+
                     Intent i = new Intent(this, FilterActivity.class);
                     startActivity(i);
                     finish();

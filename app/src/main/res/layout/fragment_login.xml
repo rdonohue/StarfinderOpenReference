@@ -7,9 +7,11 @@
     android:background="@drawable/space_background"
     tools:context=".authenticate.LoginFragment">
 
+
+
     <Button
         android:id="@+id/btn_register"
-        style="@style/ButtonStyle"
+        style="@style/ButtonStyleRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/register_button"
@@ -18,7 +20,7 @@
 
     <Button
         android:id="@+id/loginButton"
-        style="@style/ButtonStyle"
+        style="@style/ButtonStyleLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/login_button"
@@ -71,5 +73,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

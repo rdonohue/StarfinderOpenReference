@@ -23,8 +23,8 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">20sp</item>
         <item name="android:textColor">@color/darkBackground</item>
-        <item name = "android:textColorHint">@color/lightBlueText</item>
-        <item name="android:background">@color/tintColor</item>
+        <item name = "android:textColorHint">@color/textColor</item>
+        <item name="android:background">@color/colorBackgroundSpellFilter</item>
         <item name="android:typeface">monospace</item>
 
     </style>
@@ -32,8 +32,28 @@
     <style name = "ButtonStyle" >
 
         <item name="android:textSize">20sp</item>
-        <item name="android:textColor">@color/darkBackground</item>
-        <item name = "android:background">@color/tintColor</item>
+        <item name="android:textColor">@color/colorBackgroundSpellFilter</item>
+        <item name = "android:background">@color/textColor</item>
+        <item name = "android:padding">20dp</item>
+
+
+    </style>
+
+    <style name = "ButtonStyleRegister" >
+
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name = "android:background">@color/colorBackgroundSpellFilter</item>
+        <item name = "android:padding">20dp</item>
+
+
+    </style>
+
+    <style name = "ButtonStyleLogin" >
+
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name = "android:background">@color/colorBackgroundSpellFilter</item>
         <item name = "android:padding">20dp</item>
 
 
