@@ -63,7 +63,6 @@ public class SignInActivity extends AppCompatActivity implements LoginFragmentLi
         if (mSharedPreferences.getBoolean(getString(R.string.LOGGEDIN), true)) {
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.sign_in_fragment_container, new LoginFragment())
-                    .addToBackStack(null)
                     .commit();
         } else {
             Intent intent = new Intent(this, FilterActivity.class);

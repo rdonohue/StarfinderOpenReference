@@ -1,9 +1,11 @@
 package edu.tacoma.uw.ryandon.starfinderopenreference;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.appbar.CollapsingToolbarLayout;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import androidx.fragment.app.Fragment;
 
@@ -53,6 +55,21 @@ public class SpellDetailFragment extends Fragment {
                 appBarLayout.setTitle(mSpell.getSpellName());
             }
         }
+        FloatingActionButton fab = (FloatingActionButton) getActivity().findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, mSpell.getSpellDescription());
+                sendIntent.setType("text/plain");
+
+                Intent shareIntent = Intent.createChooser(sendIntent, null);
+                startActivity(shareIntent);
+
+            }
+        });
     }
 
     @Override

@@ -17,9 +17,7 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-//import edu.tacoma.uw.ryandon.starfinderopenreference.MembersDetailActivity;
 import edu.tacoma.uw.ryandon.starfinderopenreference.R;
-//import edu.tacoma.uw.ryandon.starfinderopenreference.data.MembersDB;
 import edu.tacoma.uw.ryandon.starfinderopenreference.model.Members;
 
 public class RegisterActivity extends AppCompatActivity implements MemberAddFragmentListener {
@@ -36,16 +34,11 @@ public class RegisterActivity extends AppCompatActivity implements MemberAddFrag
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-
-
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.register_fragment_container, new MemberAddFragment())
-                    .addToBackStack(null)
                     .commit();
 
-//        Intent intent = new Intent(this, SignInActivity.class);
-//        startActivity(intent);
-//        finish();
+
     }
 
     /**

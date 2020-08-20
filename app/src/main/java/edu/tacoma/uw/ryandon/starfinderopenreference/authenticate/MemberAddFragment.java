@@ -37,11 +37,6 @@ public class MemberAddFragment extends Fragment  {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        SignInActivity.fragmentManager.beginTransaction()
-//                .add(R.id.register_fragment_container, new MemberAddFragment())
-//                .addToBackStack(null)
-//                .commit();
-
     }
 
     /**
