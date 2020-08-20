@@ -48,7 +48,7 @@ public class SpellDetailFragment extends Fragment {
             // Load the dummy content specified by the fragment
             // arguments. In a real-world scenario, use a Loader
             // to load content from a content provider.
-            mSpell = SpellContent.ITEM_MAP.get(getArguments().getString(ARG_ITEM_ID));
+            mSpell = (Spell) getArguments().getSerializable(ARG_ITEM_ID);
 
             Activity activity = this.getActivity();
             CollapsingToolbarLayout appBarLayout = (CollapsingToolbarLayout) activity.findViewById(R.id.toolbar_layout);
@@ -65,7 +65,18 @@ public class SpellDetailFragment extends Fragment {
 
         // Show the spell content as text in a TextView.
         if (mSpell != null) {
-            ((TextView) rootView.findViewById(R.id.spell_detail)).setText(mSpell.getSpellDescription());
+            ((TextView) rootView.findViewById(R.id.school_dynamic_id)).setText(
+                    mSpell.getSpellSchool());
+            ((TextView) rootView.findViewById(R.id.cast__time_dynamic_id)).setText(
+                    mSpell.getSpellCastTime());
+            ((TextView) rootView.findViewById(R.id.range_dynamic_id)).setText(
+                    mSpell.getSpellRange());
+            ((TextView) rootView.findViewById(R.id.level_dynamic_id)).setText(
+                    mSpell.getSpellLevel());
+            ((TextView) rootView.findViewById(R.id.class_dynamic_id)).setText(
+                    mSpell.getClassName());
+            ((TextView) rootView.findViewById(R.id.description_dynamic_id)).setText(
+                    mSpell.getSpellDescription());
         }
 
         return rootView;

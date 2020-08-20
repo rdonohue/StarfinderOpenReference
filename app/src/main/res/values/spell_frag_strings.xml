@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="school_static">School: </string>
+    <string name="cast_time_static">Casting Time: </string>
+    <string name="range_static">Range: </string>
+    <string name="level_static">Level</string>
+    <string name="class_spellword_static">Spell</string>
+</resources>

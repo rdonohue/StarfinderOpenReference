@@ -1,13 +1,151 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
-
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/spell_detail"
-    style="?android:attr/textAppearanceLarge"
+    android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
-    android:textIsSelectable="true"
-    tools:context="edu.tacoma.uw.ryandon.starfinderopenreference.SpellDetailFragment" />
+    tools:context=".SpellDetailFragment">
+
+    <TextView
+        android:id="@+id/school_static_id"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="@string/school_static"
+        android:textAlignment="textEnd"
+        android:textIsSelectable="true"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/cast_time_static_id"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/cast_time_static_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="@string/cast_time_static"
+        android:textAlignment="center"
+        android:textIsSelectable="true"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/school_static_id" />
+
+    <TextView
+        android:id="@+id/range_static_id"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="@string/range_static"
+        android:textAlignment="textEnd"
+        android:textIsSelectable="true"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/cast_time_static_id"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cast_time_static_id" />
+
+    <TextView
+        android:id="@+id/level_static_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:padding="16dp"
+        android:text="@string/level_static"
+        android:textAlignment="center"
+        android:textIsSelectable="true"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/class_static_id"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/class_spellword_static"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/level_static_id"
+        app:layout_constraintTop_toBottomOf="@+id/level_static_id" />
+
+    <TextView
+        android:id="@+id/school_dynamic_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="theSchool"
+        android:textAlignment="center"
+        android:textSize="14sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/school_static_id"
+        app:layout_constraintStart_toEndOf="@+id/school_static_id" />
+
+    <TextView
+        android:id="@+id/cast__time_dynamic_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textSize="14sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/cast_time_static_id"
+        app:layout_constraintEnd_toEndOf="@+id/school_dynamic_id"
+        app:layout_constraintStart_toEndOf="@+id/cast_time_static_id" />
+
+    <TextView
+        android:id="@+id/range_dynamic_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textSize="14sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/range_static_id"
+        app:layout_constraintEnd_toEndOf="@+id/cast__time_dynamic_id"
+        app:layout_constraintStart_toEndOf="@+id/range_static_id" />
+
+    <TextView
+        android:id="@+id/level_dynamic_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="14sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/level_static_id"
+        app:layout_constraintEnd_toStartOf="@+id/level_static_id" />
+
+    <TextView
+        android:id="@+id/class_dynamic_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="14sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/class_static_id"
+        app:layout_constraintEnd_toStartOf="@+id/class_static_id" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="409dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="24dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/range_static_id" />
+
+    <TextView
+        android:id="@+id/description_dynamic_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="sans-serif-condensed"
+        android:lineSpacingExtra="8sp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:text="TextView"
+        android:textAlignment="viewStart"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,7 +6,7 @@
     android:orientation="vertical"
     tools:context=".MemberDetailFragment">
     <TextView
-        android:id="@+id/item_detail_id"
+        android:id="@+id/school_static_id"
         style="?android:attr/textAppearanceLarge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
