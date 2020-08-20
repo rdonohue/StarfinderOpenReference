@@ -186,7 +186,6 @@ public class SpellListActivity extends AppCompatActivity {
             holder.mIdView.setText(mValues.get(position).getSpellName());
             holder.mContentView.setText(mValues.get(position).getClassName() + " "
                                         + mValues.get(position).getSpellLevel());
-
             holder.itemView.setTag(mValues.get(position));
             holder.itemView.setOnClickListener(mOnClickListener);
         }
