@@ -35,32 +35,7 @@ public class SpellContent {
         , "School" + position, "Range" + position, "Cast Time" + position, "Description" + position);
     }
 
-    private static String makeDetails(int position) {
-        StringBuilder builder = new StringBuilder();
-        builder.append("Details about Spell: ").append(position);
-        for (int i = 0; i < position; i++) {
-            builder.append("\nMore details information here.");
-        }
-        return builder.toString();
-    }
 
-    /**
-     * A dummy item representing a piece of content.
-     */
-    public static class SpellItem {
-        public final String id;
-        public final String content;
-        public final String details;
 
-        public SpellItem(String id, String content, String details) {
-            this.id = id;
-            this.content = content;
-            this.details = details;
-        }
 
-        @Override
-        public String toString() {
-            return content;
-        }
-    }
 }
