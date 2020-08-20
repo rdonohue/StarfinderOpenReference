@@ -42,6 +42,24 @@ public class SpellDetailFragment extends Fragment {
     public SpellDetailFragment() {
     }
 
+    /**
+     * Creates a nice string for the email that will be shared.
+     */
+    private String emailMaker(){
+        String str ="Check out this spell! \n" +
+                    "Name: " + mSpell.getSpellName() + " \n" +
+                      "Level: " + mSpell.getSpellLevel() + " \n" +
+                      "Cast Time: " + mSpell.getSpellCastTime() + " \n" +
+                      "School: " + mSpell.getSpellSchool() + " \n" +
+                      "Range: " + mSpell.getSpellRange() + " \n" +
+                        "Class Name: " + mSpell.getClassName() + " \n" +
+                      "Spell Description: " + " \n" +
+                      mSpell.getSpellDescription();
+
+
+
+                return str;
+    }
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,7 +80,7 @@ public class SpellDetailFragment extends Fragment {
 
                 Intent sendIntent = new Intent();
                 sendIntent.setAction(Intent.ACTION_SEND);
-                sendIntent.putExtra(Intent.EXTRA_TEXT, mSpell.getSpellDescription());
+                sendIntent.putExtra(Intent.EXTRA_TEXT, emailMaker());
                 sendIntent.setType("text/plain");
 
                 Intent shareIntent = Intent.createChooser(sendIntent, null);

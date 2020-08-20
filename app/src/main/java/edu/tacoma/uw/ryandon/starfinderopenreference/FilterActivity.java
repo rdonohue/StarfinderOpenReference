@@ -24,7 +24,6 @@ import org.json.JSONObject;
 
 import edu.tacoma.uw.ryandon.starfinderopenreference.authenticate.SignInActivity;
 
-import edu.tacoma.uw.ryandon.starfinderopenreference.model.MembersContent;
 
     public class FilterActivity extends AppCompatActivity {
         public static FragmentManager fragmentManager;
