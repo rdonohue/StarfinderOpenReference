@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import edu.tacoma.uw.ryandon.starfinderopenreference.model.Spell;
-import edu.tacoma.uw.ryandon.starfinderopenreference.model.SpellContent;
+
 
 /**
  * A fragment representing a single Spell detail screen.
@@ -29,7 +29,7 @@ public class SpellDetailFragment extends Fragment {
     public static final String ARG_ITEM_ID = "item_id";
 
     /**
-     * The dummy content this fragment is presenting.
+     * The spell content this fragment is presenting.
      */
     private Spell mSpell;
 
@@ -45,9 +45,6 @@ public class SpellDetailFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         if (getArguments().containsKey(ARG_ITEM_ID)) {
-            // Load the dummy content specified by the fragment
-            // arguments. In a real-world scenario, use a Loader
-            // to load content from a content provider.
             mSpell = (Spell) getArguments().getSerializable(ARG_ITEM_ID);
 
             Activity activity = this.getActivity();

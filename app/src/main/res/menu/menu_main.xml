@@ -8,9 +8,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <item
-        android:id="@+id/action_ogl"
-        android:orderInCategory="100"
-        android:title="@string/action_ogl"
-        app:showAsAction="ifRoom" />
+<!--    TBD: Needs Updating in Filter Activity-->
+<!--    <item-->
+<!--        android:id="@+id/action_ogl"-->
+<!--        android:orderInCategory="100"-->
+<!--        android:title="@string/action_ogl"-->
+<!--        app:showAsAction="ifRoom" />-->
 </menu>

@@ -86,8 +86,8 @@ public class SpellDetailActivity extends AppCompatActivity {
             //
             // http://developer.android.com/design/patterns/navigation.html#up-vs-back
             //
-            navigateUpTo(new Intent(this, SpellListActivity.class));
-
+            //navigateUpTo(new Intent(this, SpellListActivity.class));
+            onBackPressed();
             return true;
         }
         return super.onOptionsItemSelected(item);
