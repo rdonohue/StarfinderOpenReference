@@ -20,50 +20,28 @@ public class Members implements Serializable {
         return mEmail;
     }
 
-    public void setmEmail(String mEmail) {
-        this.mEmail = mEmail;
-    }
+
 
     public String getmUsername() {
         return mUsername;
     }
 
-    public void setmUsername(String mUsername) {
-        this.mUsername = mUsername;
-    }
+
 
     public String getmPassword() {
         return mPassword;
     }
 
-    public void setmPassword(String mPassword) {
-        this.mPassword = mPassword;
-    }
+
 
     public String getmFirstName() {
         return mFirstName;
     }
 
-    public void setmFirstName(String mFirstName) {
-        this.mFirstName = mFirstName;
-    }
+
 
     public String getmLastName() {
         return mLastName;
-    }
-
-    public void setmLastName(String mLastName) {
-        this.mLastName = mLastName;
-    }
-
-
-
-    public String getmMemberID() {
-        return mMemberID;
-    }
-
-    public void setmMemberID(String mMemberID) {
-        this.mMemberID = mMemberID;
     }
 
 
@@ -81,34 +59,25 @@ public class Members implements Serializable {
 
     public Members(String memberFirst, String memberLast, String memberEmail, String memberUser, String memberPass) {
 
+
+        if(memberEmail.length() < 6 || !memberEmail.contains("@")
+                                       ) {
+            throw new IllegalArgumentException("Incorrect email: Email must be 6 characters containing a @");
+        }else if(memberPass.length() < 6) {
+            throw new IllegalArgumentException("Password must be atleast 6 characters");
+        }else if(memberEmail.equals(null) ){
+            throw new NullPointerException("Null value for email ");
+        }else if( memberPass.equals(null)){
+            throw new NullPointerException("Null value for  password");
+        }
+
         mFirstName = memberFirst;
         mLastName = memberLast;
         mEmail = memberEmail;
         mUsername = memberUser;
-
         mPassword = memberPass;
 
     }
 
-    public static List<Members> parseCourseJson(String courseJson) throws JSONException {
-        List<Members> courseList = new ArrayList<>();
 
-        if(courseJson != null){
-            JSONArray arr = new JSONArray(courseJson);
-
-
-            for(int i = 0; i < arr.length(); i++){
-                JSONObject obj = arr.getJSONObject(i);
-                Members member = new Members(
-                        obj.getString(Members.FIRST_NAME),
-                        obj.getString(Members.LAST_NAME),
-                        obj.getString(Members.USERNAME),
-                        obj.getString(Members.EMAIL),
-                        obj.getString(Members.PASSWORD));
-                courseList.add(member);
-            }
-        }
-
-        return courseList;
-    }
 }
