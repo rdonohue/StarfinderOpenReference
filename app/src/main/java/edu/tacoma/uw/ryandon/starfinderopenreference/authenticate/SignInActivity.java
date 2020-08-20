@@ -42,15 +42,6 @@ public class SignInActivity extends AppCompatActivity implements LoginFragmentLi
     private boolean logInApproved;
     private String LOG_IN = "Login";
 
-
-
-    public void ReturnButton(View view){
-        Intent intent = new Intent(this, SignInActivity.class);
-        startActivity(intent);
-    }
-
-
-
     /**
      * Sets up the fragment support manager and intent based off the login preferences of the user.
      * @param savedInstanceState a Bundle that represents the saved instance state of the application.
@@ -68,7 +59,6 @@ public class SignInActivity extends AppCompatActivity implements LoginFragmentLi
         if (mSharedPreferences.getBoolean(getString(R.string.LOGGEDIN), true)) {
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.sign_in_fragment_container, new LoginFragment())
-                    .addToBackStack(null)
                     .commit();
         } else {
             Intent intent = new Intent(this, FilterActivity.class);

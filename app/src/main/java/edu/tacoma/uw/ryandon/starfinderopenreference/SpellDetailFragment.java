@@ -1,9 +1,11 @@
 package edu.tacoma.uw.ryandon.starfinderopenreference;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.appbar.CollapsingToolbarLayout;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import androidx.fragment.app.Fragment;
 
@@ -40,6 +42,24 @@ public class SpellDetailFragment extends Fragment {
     public SpellDetailFragment() {
     }
 
+    /**
+     * Creates a nice string for the email that will be shared.
+     */
+    private String emailMaker(){
+        String str ="Check out this spell! \n" +
+                    "Name: " + mSpell.getSpellName() + " \n" +
+                      "Level: " + mSpell.getSpellLevel() + " \n" +
+                      "Cast Time: " + mSpell.getSpellCastTime() + " \n" +
+                      "School: " + mSpell.getSpellSchool() + " \n" +
+                      "Range: " + mSpell.getSpellRange() + " \n" +
+                        "Class Name: " + mSpell.getClassName() + " \n" +
+                      "Spell Description: " + " \n" +
+                      mSpell.getSpellDescription();
+
+
+
+                return str;
+    }
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +73,21 @@ public class SpellDetailFragment extends Fragment {
                 appBarLayout.setTitle(mSpell.getSpellName());
             }
         }
+        FloatingActionButton fab = (FloatingActionButton) getActivity().findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, emailMaker());
+                sendIntent.setType("text/plain");
+
+                Intent shareIntent = Intent.createChooser(sendIntent, null);
+                startActivity(shareIntent);
+
+            }
+        });
     }
 
     @Override
