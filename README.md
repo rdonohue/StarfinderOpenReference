@@ -33,7 +33,6 @@ Features implemented:
     
     - As a user I would like to log into the application so that I can have unique account
       settings, such as preferences and list. Medium Priority.
-   
       
     - As a user I would like to be able to text specific spells or my spell list to share it with
       others. Medium Priority.
@@ -44,6 +43,7 @@ Features implemented:
          
   Bugs and unimplemented features:
     -No savable list of spells for the user.
+    -Resizing issues for some phones.
    
   
     
